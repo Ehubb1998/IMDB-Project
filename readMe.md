@@ -12,7 +12,7 @@ _Ehubb's first Front-End Application recreating IMDB!_
 
 ## **Brief Explanation of The App** 
 
-- This app will help solve the ancient issue of "What do I want to watch?" Taking inspiration of IMDB, this will be your one-stop shop for figuring out what to watch. You go thru a series of questions that will personalize your taste in movies. Then give you a list of recommended movies to watch and you can search for movies in your prefered genre. Once you log in, you'll be able to save movies into a list of "watch later", rate and review movies, as well as create your own movie ranking list. 
+- This app will help solve the ancient issue of "What do I want to watch?" Taking inspiration of IMDB, this will be your one-stop shop for figuring out what to watch. You go thru a series of questions that will personalize your taste in movies. Once you log in, you'll be given a list of recommended movies to watch and you can search for movies in your preferred genre. You'll also be able to save movies into a list of "watch later", rate and review movies, as well as create your own movie ranking list. 
 
 ---
 
