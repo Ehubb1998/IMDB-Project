@@ -1,0 +1,29 @@
+{
+    "development": {
+        "username": "imdb_lite",
+        "password": "macosx",
+        "database": "movies_list",
+        "host": "127.0.0.1",
+        "dialect": "postgres",
+        "seederStorage": "sequelize",
+        "operatorsAliases": false
+    },
+    "test": {
+        "username": "imdb_lite",
+        "password": "macosx",
+        "database": "movies_list_test",
+        "host": "127.0.0.1",
+        "dialect": "postgres",
+        "seederStorage": "sequelize",
+        "operatorsAliases": false
+    },
+    "production": {
+        "username": "imdb_lite",
+        "password": "macosx",
+        "database": "movies_list_production",
+        "host": "127.0.0.1",
+        "dialect": "postgres",
+        "seederStorage": "sequelize",
+        "operatorsAliases": false
+    }
+}
