@@ -6,8 +6,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   WatchLater.associate = function(models) {
     // associations can be defined here
-    WaterLater.belongsTo(models.Movie, { foreignKey: "movie_title_id" });
-    WaterLater.belongsTo(models.User, { foreignKey: "user_id" });
+    WatchLater.belongsTo(models.Movie, { foreignKey: "movie_title_id" });
+    WatchLater.belongsTo(models.User, { foreignKey: "user_id" });
   };
   return WatchLater;
 };

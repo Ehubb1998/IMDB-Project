@@ -2,6 +2,7 @@ const express = require("express");
 const userRouter = express.Router();
 const bcrypt = require("bcryptjs");
 const { getUserToken, requireAuth } = require("../auth");
+const { check } = require("express-validator");
 const { asyncHandler, handleValidationErrors } = require("../utils");
 const db = require("../db/models");
 const { use } = require("../app");
@@ -37,6 +38,13 @@ const validateUserNameAndPassword = [
         .exists({ checkFalsy: true })
         .withMessage("Please provide a valid Password"),
 ];
+
+userRouter.get("/:id(\\d+)", asyncHandler(async (req, res, next) => {
+    const id = parseInt(req.params.id, 10);
+    const user = await User.findByPk(id);
+    const { userName } = user;
+    res.send(userName);
+}))
 
 userRouter.post(
     "/",
