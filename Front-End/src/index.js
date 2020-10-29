@@ -8,7 +8,7 @@ import configureStore from './store/configureStore';
 const token = window.localStorage.getItem("IMDB_ACCESS_TOKEN");
 
 const store = configureStore({ auth: { token } });
-
+// debugger;
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

@@ -43,7 +43,8 @@ userRouter.get("/:id(\\d+)", asyncHandler(async (req, res, next) => {
     const id = parseInt(req.params.id, 10);
     const user = await User.findByPk(id);
     const { userName } = user;
-    res.send(userName);
+    // console.log(userName);
+    res.json({userName: userName});
 }))
 
 userRouter.post(
@@ -60,7 +61,7 @@ userRouter.post(
             const err = new Error("Sign Up Failed");
             err.status = 401;
             err.title = "Sign Up failed";
-            err.errors = "Password and Confirmed must match";
+            err.errors = "Password and Confirmed Password must match";
             err.confirm = false;
             return next(err);
         }
@@ -87,6 +88,7 @@ userRouter.post(
     "/token",
     validateUserNameAndPassword,
     asyncHandler(async (req, res, next) => {
+        console.log(req.body);
         const { userName, password } = req.body;
         const user = await User.findOne({
             where: {
