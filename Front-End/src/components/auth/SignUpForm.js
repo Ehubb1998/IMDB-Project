@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { updateEmailValue, updateUserNameValue, updatePasswordValue, updateCPValue, signUp } from '../store/actions/auth';
+import { updateEmailValue, updateUserNameValue, updatePasswordValue, updateCPValue, signUp } from '../../store/actions/auth';
 
 const SignUpForm = (props) => {
     const [userName, setUserName] = useState("");

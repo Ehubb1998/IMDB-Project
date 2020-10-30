@@ -12,6 +12,7 @@ export const UPDATE_TOKEN_VALUE = "UPDATE_TOKEN_VALUE";
 export const DEMO_VALUES = "DEMO_VALUES";
 export const DEMO_LOGIN = "DEMO_LOGIN";
 export const HANDLE_ERRORS = "HANDLE_ERRORS";
+export const LOGOUT = "LOGOUT";
 
 export const updateEmailValue = value => ({ type: UPDATE_EMAIL_VALUE, value });
 
@@ -28,6 +29,8 @@ export const demoLogin = value => ({ type: DEMO_LOGIN, value });
 export const demoValues = () => ({ type: DEMO_VALUES, userName: "Demo", password: "test" });
 
 export const handleErrors = () => ({ type: HANDLE_ERRORS, title: errorTitle, msg: errorMsg });
+
+export const logOut = () => ({ type: LOGOUT });
 
 export const signUp = (userName, email, password, confirmedPassword) => {
     return async (dispatch) => {
@@ -59,6 +62,7 @@ export const signUp = (userName, email, password, confirmedPassword) => {
                     }
                 });
                 const { userName } = await res.json();
+                window.localStorage.setItem("IMDB_USERNAME", userName);
                 // console.log(userName);
                 userName1 = userName;
                 window.location.href = `/selection/${userName1}`;
@@ -106,6 +110,7 @@ export const logIn = (userName, password) => {
                     }
                 });
                 const { userName } = await res.json();
+                window.localStorage.setItem("IMDB_USERNAME", userName);
                 // console.log(userName);
                 userName2 = userName;
                 window.location.href = `/homepage/${userName2}`;
@@ -151,6 +156,7 @@ export const demo = () => {
                     }
                 });
                 const { userName } = await res.json();
+                window.localStorage.setItem("IMDB_USERNAME", userName);
                 // console.log(userName);
                 userName3 = userName;
                 window.location.href = `/homepage/${userName3}`;

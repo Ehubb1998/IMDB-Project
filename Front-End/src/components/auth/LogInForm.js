@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { updateUserNameValue, updatePasswordValue, logIn, demo, demoValues } from '../store/actions/auth';
+import { updateUserNameValue, updatePasswordValue, logIn, demo, demoValues } from '../../store/actions/auth';
 
 
 const LogInForm = (props) => {

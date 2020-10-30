@@ -1,4 +1,4 @@
-import { UPDATE_EMAIL_VALUE, UPDATE_USERNAME_VALUE, UPDATE_PASSWORD_VALUE, UPDATE_CP_VALUE, UPDATE_TOKEN_VALUE, DEMO_VALUES, DEMO_LOGIN, HANDLE_ERRORS } from '../actions/auth';
+import { UPDATE_EMAIL_VALUE, UPDATE_USERNAME_VALUE, UPDATE_PASSWORD_VALUE, UPDATE_CP_VALUE, UPDATE_TOKEN_VALUE, DEMO_VALUES, DEMO_LOGIN, HANDLE_ERRORS, LOGOUT } from '../actions/auth';
 
 const initialState = {
     token: ""
@@ -55,6 +55,9 @@ const authReducer = (state = initialState, action) => {
                 title: action.title,
                 msg: action.msg
             }
+        }
+        case LOGOUT: {
+            return initialState
         }
         default: {
             return state
