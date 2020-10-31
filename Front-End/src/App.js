@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { useSelector, useDispatch } from 'react-redux'
-import { BrowserRouter, Redirect, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import ProtectedRoute from './components/ProtectedRoute';
 import PrivateRoute from './components/PrivateRoute';
@@ -10,15 +9,17 @@ import Selection from './components/Selection';
 import Homepage from './components/Homepage';
 import SplashPage from './components/SplashPage';
 import LogInForm from './components/auth/LogInForm';
+import ActionPage from './components/movie-genres/action/ActionPage';
 
 
-const App = (props) => {
+const App = (props) => { 
   let userName = window.localStorage.getItem("IMDB_USERNAME");
   
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={SplashPage} />
+        <Route exact path="/" render={() => <SplashPage isLoggedIn={props.token} />} />
+        <Route exact path="/action" component={ActionPage} />
         <ProtectedRoute isLoggedIn={props.token} exact path={`/selection/${userName}`} render={() => <Selection userName={userName} />} />
         <PrivateRoute isLoggedIn={props.token} exact path={`/homepage/${userName}`} render={() => <Homepage userName={userName} />} />
         <Route exact path="/sign-up" render={() => <SignUpForm />} />
