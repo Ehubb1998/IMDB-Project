@@ -35,6 +35,8 @@ export const logOut = () => ({ type: LOGOUT });
 export const signUp = (userName, email, password, confirmedPassword) => {
     return async (dispatch) => {
         try {
+            // console.log(userName);
+            // debugger;
             const res = await fetch("http://localhost:8081/users", {
                 method: "POST",
                 body: JSON.stringify({ userName, email, password, confirmedPassword }),
@@ -42,6 +44,8 @@ export const signUp = (userName, email, password, confirmedPassword) => {
                     "Content-Type": "application/json"
                 },
             });
+            // console.log(res);
+            // debugger;
             if (!res.ok) {
                 throw res;
             }
@@ -71,8 +75,8 @@ export const signUp = (userName, email, password, confirmedPassword) => {
 
         } catch (err) {
             const { title, errors } = await err.json();
-            console.log(title);
-            console.log(errors);
+            // console.log(title);
+            // console.log(errors);
             errorTitle = title;
             errorMsg = errors;
             dispatch(handleErrors());
@@ -90,6 +94,7 @@ export const logIn = (userName, password) => {
                     "Content-Type": "application/json"
                 },
             });
+            // console.log(res);
             if (!res.ok) {
                 throw res;
             }

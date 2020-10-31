@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import logo from '../../../logo/logo.png';
+import ComicBook from './ComicBook';
 
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -164,7 +166,20 @@ const ActionPage = () => {
                 })}
             >
                 <div className={classes.drawerHeader} />
-                <div><h1>Action Page</h1></div>
+                <div id="logo">
+                    <a href="/"><img src={logo} style={{ height: "150px" }} /></a>
+                </div>
+                <div style={{ backgroundColor: "lightgrey", boxShadow: "5px 5px black" }}>
+                    <h1 style={{ textAlign: "center" }}>Action</h1>
+                </div>
+                <div>
+                    <h2 style={{ textAlign: "center" }}>What Type of Action are You Interested in?</h2>
+                </div>
+                <div>
+                    <div>
+                        <ComicBook />
+                    </div>
+                </div>
             </main>
         </div>
     )

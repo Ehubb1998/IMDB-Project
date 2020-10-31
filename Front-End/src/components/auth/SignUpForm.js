@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button';
+import logo from '../../logo/logo.png';
 import { updateEmailValue, updateUserNameValue, updatePasswordValue, updateCPValue, signUp } from '../../store/actions/auth';
 
 import clsx from 'clsx';
@@ -13,7 +14,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
+// import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
@@ -21,9 +22,9 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import HomeIcon from '@material-ui/icons/Home';
-import WatchLaterIcon from '@material-ui/icons/WatchLater';
-import RateReviewIcon from '@material-ui/icons/RateReview';
+// import HomeIcon from '@material-ui/icons/Home';
+// import WatchLaterIcon from '@material-ui/icons/WatchLater';
+// import RateReviewIcon from '@material-ui/icons/RateReview';
 import MovieIcon from '@material-ui/icons/Movie';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
@@ -117,6 +118,60 @@ const SignUpForm = (props) => {
             errDiv.innerHTML = "";
             errTitle.appendChild(invalidCred);
             errDiv.appendChild(errTitle);
+            if (props.msg === "Please fill out Email field") {
+                window.document.getElementById("emailField").style.borderColor = "red"
+                window.document.getElementById("userNameField").style.borderColor = ""
+                window.document.getElementById("passwordField").style.borderColor = ""
+                window.document.getElementById("cpField").style.borderColor = ""
+            }
+            if (props.msg === "Please fill out Username field") {
+                window.document.getElementById("userNameField").style.borderColor = "red"
+                window.document.getElementById("emailField").style.borderColor = ""
+                window.document.getElementById("passwordField").style.borderColor = ""
+                window.document.getElementById("cpField").style.borderColor = ""
+            }
+            if (props.msg === "Sorry, that Username already exists") {
+                window.document.getElementById("userNameField").style.borderColor = "red"
+                window.document.getElementById("emailField").style.borderColor = ""
+                window.document.getElementById("passwordField").style.borderColor = ""
+                window.document.getElementById("cpField").style.borderColor = ""
+            }
+            if (props.msg === "Please follow Password requirements") {
+                window.document.getElementById("passwordField").style.borderColor = "red"
+                window.document.getElementById("emailField").style.borderColor = ""
+                window.document.getElementById("userNameField").style.borderColor = ""
+                window.document.getElementById("cpField").style.borderColor = "red"
+            }
+            if (props.msg === "Password and Confirmed Password must match") {
+                window.document.getElementById("passwordField").style.borderColor = "red"
+                window.document.getElementById("cpField").style.borderColor = "red"
+                window.document.getElementById("emailField").style.borderColor = ""
+                window.document.getElementById("userNameField").style.borderColor = ""
+            }
+            if (props.msg === "Please fill out all required fields") {
+                window.document.getElementById("emailField").style.borderColor = "red"
+                window.document.getElementById("userNameField").style.borderColor = "red"
+                window.document.getElementById("passwordField").style.borderColor = "red"
+                window.document.getElementById("cpField").style.borderColor = "red"
+            }
+            if (props.msg === "Please fill out Email and Username fields") {
+                window.document.getElementById("emailField").style.borderColor = "red"
+                window.document.getElementById("userNameField").style.borderColor = "red"
+                window.document.getElementById("passwordField").style.borderColor = ""
+                window.document.getElementById("cpField").style.borderColor = ""
+            }
+            if (props.msg === "Please fill out Username and Password fields") {
+                window.document.getElementById("emailField").style.borderColor = ""
+                window.document.getElementById("userNameField").style.borderColor = "red"
+                window.document.getElementById("passwordField").style.borderColor = "red"
+                window.document.getElementById("cpField").style.borderColor = "red"
+            }
+            if (props.msg === "Please fill out Email and Password fields") {
+                window.document.getElementById("emailField").style.borderColor = "red"
+                window.document.getElementById("userNameField").style.borderColor = ""
+                window.document.getElementById("passwordField").style.borderColor = "red"
+                window.document.getElementById("cpField").style.borderColor = "red"
+            }
         }
     }, [props.msg])
 
@@ -225,10 +280,14 @@ const SignUpForm = (props) => {
                         <button onClick={handleSubmit} className="create-user-button">Create</button>
                     </form>
                 </div> */}
+                    <div id="logo">
+                        <a href="/"><img src={logo} style={{ height: "100px" }} /></a>
+                    </div>
                 <div className="create-user-form" style={{ backgroundColor: "lightgray", borderRadius: "18px" }}>
                     <Form>
                         <h1 id="signin-header">Sign Up to See Your Recommended List with IMDB Lite!</h1>
                         <div className="errDiv"></div>
+                        <p>Use 8 or more characters with a mix of letters, numbers and symbols</p>
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Email</Form.Label>
                             <Form.Control onChange={updateEmail} type="email" value={email} id="emailField" placeholder="Enter Email" required />

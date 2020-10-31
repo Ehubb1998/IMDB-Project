@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button';
+import logo from '../../logo/logo.png';
 import { updateUserNameValue, updatePasswordValue, logIn, demo, demoValues } from '../../store/actions/auth';
 
 import clsx from 'clsx';
@@ -13,7 +14,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
+// import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
@@ -21,9 +22,9 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import HomeIcon from '@material-ui/icons/Home';
-import WatchLaterIcon from '@material-ui/icons/WatchLater';
-import RateReviewIcon from '@material-ui/icons/RateReview';
+// import HomeIcon from '@material-ui/icons/Home';
+// import WatchLaterIcon from '@material-ui/icons/WatchLater';
+// import RateReviewIcon from '@material-ui/icons/RateReview';
 import MovieIcon from '@material-ui/icons/Movie';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
@@ -132,6 +133,14 @@ const LogInForm = (props) => {
             errDiv.innerHTML = "";
             errTitle.appendChild(invalidCred);
             errDiv.appendChild(errTitle);
+            if (props.msg === "The provided Username does not exist") {
+                window.document.getElementById("userNameField").style.borderColor = "red"
+                window.document.getElementById("passwordField").style.borderColor = ""
+            }
+            if (props.msg === "The provided Password is invalid") {
+                window.document.getElementById("userNameField").style.borderColor = ""
+                window.document.getElementById("passwordField").style.borderColor = "red"
+            }
         }
     }, [props.msg])
 
@@ -239,6 +248,9 @@ const LogInForm = (props) => {
                         <button onClick={handleDemo} className="demoButton">Demo</button>
                     </form>
                 </div> */}
+                        <div id="logo">
+                            <a href="/"><img src={logo} style={{ height: "100px" }} /></a>
+                        </div>
                 <div className="log-in-form">
                     <div style={{backgroundColor: "lightgray", borderRadius: "18px"}}>
                         <Form>
