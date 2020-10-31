@@ -4,13 +4,13 @@ import { genreOption } from "../../../store/actions/genre";
 import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
-import AvengerImg from './images/Avengers-Endgame-poster-1.jpg';
+import AvengerImg from './images/infinitywar.jpg';
 import { useHistory } from 'react-router-dom';
 
 const image = {
     url: AvengerImg,
     title: 'Action',
-    width: '20%',
+    width: '80%',
 }
 
 const useStyles = makeStyles((theme) => ({

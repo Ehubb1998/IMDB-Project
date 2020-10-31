@@ -1,9 +1,10 @@
 import React from 'react';
 import Action from './movie-genres/action/Action';
 import { Link } from "react-router-dom";
-// import Comedy from './movie-genres/comedy/Comedy';
-// import Drama from './movie-genres/drama/Drama';
-// import Horror from './movie-genres/horror/Horror';
+import Comedy from './movie-genres/comedy/Comedy'; 
+import Drama from './movie-genres/drama/Drama';
+import Horror from './movie-genres/horror/Horror'; 
+import logo from '../logo/imdbLite.png'
 
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -168,15 +169,22 @@ const SplashPage = (props) => {
             >
                 <div className={classes.drawerHeader} />
                 <>
-                    <h1>IMDB Lite</h1>
-                    <p>Welcome to IMDB Lite!</p>
-                    <div></div>
-                    <p>What Type of Movies Are You in The Mood to Watch?</p>
                     <div>
-                        <Action />
-                        {/* <Comedy /> */}
-                        {/* <Drama /> */}
-                        {/* <Horror /> */}
+                        <a href="/"><img src={logo}/></a>
+                    </div>
+                    <div style={{backgroundColor: "lightgrey"}}>
+                    <h1 style={{textAlign: "center"}}>Welcome to IMDB Lite!</h1>
+                    </div>
+                    <div>
+                    <h2 style={{ textAlign: "center" }}>What Type of Movies Are You in The Mood to Watch?</h2>
+                    </div>
+                    <div style={{display: "flex", flexDirection: "row", justifyContent: "space-around"}}>
+                        <div style={{marginLeft: "43px"}}>
+                            <Action />
+                        </div>
+                        <Comedy />
+                        <Drama />
+                        <Horror />
                     </div>
                 </>
             </main>
