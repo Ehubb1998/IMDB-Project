@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Comedy from './movie-genres/comedy/Comedy'; 
 import Drama from './movie-genres/drama/Drama';
 import Horror from './movie-genres/horror/Horror'; 
-import logo from '../logo/imdbLite.png'
+import logo from '../logo/logo.png'
 
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -163,14 +163,14 @@ const SplashPage = (props) => {
                 </List>
             </Drawer>
             <main
-                className={clsx(classes.content, {
+                className={clsx(classes.content, { 
                     [classes.contentShift]: open,
                 })}
             >
                 <div className={classes.drawerHeader} />
                 <>
-                    <div>
-                        <a href="/"><img src={logo}/></a>
+                    <div id="logo">
+                        <a href="/"><img src={logo} style={{height: "200px"}}/></a>
                     </div>
                     <div style={{backgroundColor: "lightgrey"}}>
                     <h1 style={{textAlign: "center"}}>Welcome to IMDB Lite!</h1>
