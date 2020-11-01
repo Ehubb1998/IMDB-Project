@@ -10,6 +10,7 @@ import Homepage from './components/Homepage';
 import SplashPage from './components/SplashPage';
 import LogInForm from './components/auth/LogInForm';
 import ActionPage from './components/movie-genres/action/ActionPage';
+import ComedyPage from './components/movie-genres/comedy/ComedyPage';
 
 
 const App = (props) => { 
@@ -20,6 +21,7 @@ const App = (props) => {
       <Switch>
         <Route exact path="/" render={() => <SplashPage isLoggedIn={props.token} />} />
         <Route exact path="/action" component={ActionPage} />
+        <Route exact path="/comedy" component={ComedyPage} />
         <ProtectedRoute isLoggedIn={props.token} exact path={`/selection/${userName}`} render={() => <Selection userName={userName} />} />
         <PrivateRoute isLoggedIn={props.token} exact path={`/homepage/${userName}`} render={() => <Homepage userName={userName} />} />
         <Route exact path="/sign-up" render={() => <SignUpForm />} />
