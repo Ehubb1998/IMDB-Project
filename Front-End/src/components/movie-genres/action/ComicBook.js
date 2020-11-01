@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import { useDispatch } from "react-redux";
 // import { genreOption } from "../../../store/actions/genre";
 import clip from './clips/thorArrives.mp4'
@@ -17,20 +17,20 @@ const ComicBook = () => {
         const videoBox = window.document.getElementById("video-clip");
         videoBox.play();
         // videoBox.style.transition = "transform 1.5s";
-        videoBox.style.transform = "scale(2, 2)";
-        videoBox.style.marginLeft = "300px";
+        // videoBox.style.transform = "scale(2, 2)";
+        // videoBox.style.marginLeft = "300px";
     }
     const stopVideo = () => {
         const videoBox = window.document.getElementById("video-clip");
         videoBox.load();
         // videoBox.style.transition = "transform 1.5s";
-        videoBox.style.transform = "scale(1, 1)";
-        videoBox.style.marginLeft = "";
+        // videoBox.style.transform = "scale(1, 1)";
+        // videoBox.style.marginLeft = "";
     }
     return (
         <div>
             <div id="comicbook-action" onClick={handleClick} style={{ cursor: "pointer", width: "320px", height: "240px" }}>
-                <video onMouseEnter={playVideo} onMouseLeave={stopVideo} id="video-clip" width="320" height="240" poster={poster} >
+                <video onMouseEnter={playVideo} onMouseLeave={stopVideo} id="video-clip" width="320" height="240" poster={poster} loop >
                     <source src={clip} type="video/mp4" />
                 </video>
             </div>

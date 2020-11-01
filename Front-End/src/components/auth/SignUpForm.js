@@ -195,6 +195,10 @@ const SignUpForm = (props) => {
     const updateConfirmedPassword = (e) => {
         setConfirmedPassword(e.target.value);
     }
+    const handleLogoButton = () => {
+        window.localStorage.clear();
+        window.location.href = "/"
+    }
 
     return (
         <div className={classes.root}>
@@ -281,7 +285,7 @@ const SignUpForm = (props) => {
                     </form>
                 </div> */}
                     <div id="logo">
-                        <a href="/"><img src={logo} style={{ height: "100px" }} /></a>
+                    <a onClick={handleLogoButton} href="/"><img src={logo} style={{ height: "100px" }} /></a>
                     </div>
                 <div className="create-user-form" style={{ backgroundColor: "lightgray", borderRadius: "18px" }}>
                     <Form>

@@ -17,20 +17,20 @@ const AdventureSciFi = () => {
         const videoBox = window.document.getElementById("video-clip2");
         videoBox.play();
         // videoBox.style.transition = "transform 1.5s";
-        videoBox.style.transform = "scale(2, 2)";
-        videoBox.style.marginLeft = "300px";
+        // videoBox.style.transform = "scale(2, 2)";
+        // videoBox.style.marginLeft = "300px";
     }
     const stopVideo = () => {
         const videoBox = window.document.getElementById("video-clip2");
         videoBox.load();
         // videoBox.style.transition = "transform 1.5s";
-        videoBox.style.transform = "scale(1, 1)";
-        videoBox.style.marginLeft = "";
+        // videoBox.style.transform = "scale(1, 1)";
+        // videoBox.style.marginLeft = "";
     }
     return (
         <div>
             <div id="adventure-action" onClick={handleClick} style={{ cursor: "pointer", width: "320px", height: "240px" }}>
-                <video onMouseEnter={playVideo} onMouseLeave={stopVideo} id="video-clip2" width="320" height="240" poster={poster} >
+                <video onMouseEnter={playVideo} onMouseLeave={stopVideo} id="video-clip2" width="320" height="240" poster={poster} loop >
                     <source src={clip} type="video/mp4" />
                 </video>
             </div>
@@ -38,7 +38,6 @@ const AdventureSciFi = () => {
                 <h2>Adventure/Sci-Fi</h2>
             </div>
         </div>
-
     )
 }
 

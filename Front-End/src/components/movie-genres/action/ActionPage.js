@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import logo from '../../../logo/logo.png';
 import ComicBook from './ComicBook';
 import AdventureSciFi from './Adventure';
+import Hand2Hand from './Hand2Hand';
 
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -184,6 +185,7 @@ const ActionPage = () => {
                     <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-around" }}>
                         <ComicBook />
                         <AdventureSciFi />
+                        <Hand2Hand />
                     </div>
                 </div>
             </main>
