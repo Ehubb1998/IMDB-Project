@@ -1,11 +1,11 @@
 import React from 'react';
-import { useDispatch } from "react-redux";
-import { genreOption } from "../../../store/actions/genre";
+// import { useDispatch } from "react-redux";
+// import { genreOption } from "../../../store/actions/genre";
 import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 import AvengerImg from './images/infinitywar.jpg';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 
 const image = {
     url: AvengerImg,
@@ -87,13 +87,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Action = (props) => {
-    const history = useHistory();
-    const dispatch = useDispatch();
+    // const history = useHistory();
+    // const dispatch = useDispatch();
     const classes = useStyles();
     const handleClick = () => {
         const action = "action";
-        dispatch(genreOption(action));
-        history.push("/action")
+        window.localStorage.setItem("CATEGORIES", action);
+        // history.push("/action")
+        window.location.href = "/action"
     };
 
     return (
