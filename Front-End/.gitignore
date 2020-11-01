@@ -24,3 +24,5 @@ yarn-error.log*
 
 /components/movie-genre/action/clips
 /components/movie-genre/action/images
+/components/movie-genre/comedy/images
+/components/movie-genre/comedy/clips
