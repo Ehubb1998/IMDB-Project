@@ -291,7 +291,7 @@ const SignUpForm = (props) => {
                     <Form>
                         <h1 id="signin-header">Sign Up to See Your Recommended List with IMDB Lite!</h1>
                         <div className="errDiv"></div>
-                        <p>Use 8 or more characters with a mix of letters, numbers and symbols</p>
+                        <p>Use 8 or more characters with at least 1 uppercase letter and a mix of numbers and/or symbols</p>
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Email</Form.Label>
                             <Form.Control onChange={updateEmail} type="email" value={email} id="emailField" placeholder="Enter Email" required />
