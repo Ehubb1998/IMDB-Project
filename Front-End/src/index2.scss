@@ -1,0 +1,74 @@
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+}
+
+/* Lightbox container */
+#container-1 {
+	// display: none;
+	width: 500px;
+	height: 200px;
+	margin: 40px auto 0 auto;
+	// background-image: url("https://imdb-lite-movie-posters.s3.amazonaws.com/Movie-Info/Posters/y9Omn1Z7fCkivwlXewEzoXZAz3W.jpg");
+	background-color: black;
+	color: white;
+	text-align: center;
+}
+
+#container-inner {
+	font-weight: 700;
+	line-height: 200px;
+}
+
+/* Empty container that will replace the original container */
+#empty-container {
+	width: 500px;
+	height: 200px;
+	margin: 40px auto 0 auto;
+}
+
+#close {
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	cursor: pointer;
+	display: none;
+	margin-top: 100px;
+}
+
+#movie1 {
+	position: absolute;
+	left: 40px;
+	top: 50px;
+	cursor: pointer;
+	display: none;
+	margin-top: 100px;
+}
+
+.in-animation {
+	animation: inlightbox 0.8s forwards;
+	position: fixed !important;
+	margin: 0 !important;
+}
+
+.out-animation {
+	animation: outlightbox 0.8s forwards;
+}
+
+@keyframes inlightbox 
+{ 
+	50% { 
+		width: 100%;
+		left: 0;
+		height: 200px;
+	}
+	100% {
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+	}
+}

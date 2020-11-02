@@ -3,7 +3,6 @@ import { Link, useHistory } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { logOut } from '../store/actions/auth';
 import logo from '../logo/logo.png';
-import Button from 'react-bootstrap/Button';
 
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
