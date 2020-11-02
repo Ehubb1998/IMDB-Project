@@ -164,7 +164,7 @@ export const demo = () => {
                 window.localStorage.setItem("IMDB_USERNAME", userName);
                 // console.log(userName);
                 userName3 = userName;
-                window.location.href = `/homepage/${userName3}`;
+                window.location.href = `/selection/${userName3}`;
             }
             user3();
 

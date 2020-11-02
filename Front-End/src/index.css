@@ -1,3 +1,282 @@
 /* TODO Add site wide styles */
 
+.hvr-grow-shadow {
+  display: inline-block;
+  /* margin: 0; */
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+  background-color: lightgrey;
+  width: 320px;
+  font-weight: 700;
+  border-radius: 18px;
+  text-align: center;
+  cursor: pointer;
+}
+.hvr-grow-shadow:hover, .hvr-grow-shadow:focus, .hvr-grow-shadow:active {
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  /* margin-right: 700px; */
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.videoBox3 {
+  display: inline-block;
+  margin: 0;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+  background-color: transparent;
+  width: 320px;
+  font-weight: 700;
+  border-radius: 18px;
+  text-align: center;
+  cursor: pointer;
+}
+.videoBox3:hover, .videoBox3:focus, .videoBox3:active {
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  margin-right: 100px;
+  -webkit-transform: scale(1.9);
+  transform: scale(1.9);
+}
+
+.videoBox1 {
+  display: inline-block;
+  margin: 0;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+  background-color: transparent;
+  width: 320px;
+  font-weight: 700;
+  border-radius: 18px;
+  text-align: center;
+  cursor: pointer;
+}
+.videoBox1:hover, .videoBox1:focus, .videoBox1:active {
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  margin-left: 120px;
+  margin-right: 150px;
+  -webkit-transform: scale(1.9);
+  transform: scale(1.9);
+}
+
+.videoBox2 {
+  display: inline-block;
+  margin: 0;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+  background-color: transparent;
+  width: 320px;
+  font-weight: 700;
+  border-radius: 18px;
+  text-align: center;
+  cursor: pointer;
+}
+.videoBox2:hover, .videoBox2:focus, .videoBox2:active {
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  margin-right: 100px;
+  -webkit-transform: scale(1.9);
+  transform: scale(1.9);
+}
+
+/* .wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 300px;
+    height: 400px; 
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+#slide {
+    position: absolute;
+    left: -300px;
+    width: 300px;
+    height: 400px;
+    background: blue;
+    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-delay: 2s;
+    animation: slide 0.5s forwards;
+    animation-delay: 2s;
+} */
+
+/* @-webkit-keyframes slide {
+    100% { left: 0; }
+}
+
+@keyframes slide {
+    100% { left: 0; }
+} */
+
+.lds-roller {
+  display: inline-block;
+  position: relative;
+  margin-left: 577px;
+  width: 50%;
+  padding: 10px;
+  height: 50px;
+}
+.lds-roller div {
+  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 40px 40px;
+}
+.lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fff;
+  margin: -4px 0 0 -4px;
+}
+.lds-roller div:nth-child(1) {
+  animation-delay: -0.036s;
+}
+.lds-roller div:nth-child(1):after {
+  top: 63px;
+  left: 63px;
+}
+.lds-roller div:nth-child(2) {
+  animation-delay: -0.072s;
+}
+.lds-roller div:nth-child(2):after {
+  top: 68px;
+  left: 56px;
+}
+.lds-roller div:nth-child(3) {
+  animation-delay: -0.108s;
+}
+.lds-roller div:nth-child(3):after {
+  top: 71px;
+  left: 48px;
+}
+.lds-roller div:nth-child(4) {
+  animation-delay: -0.144s;
+}
+.lds-roller div:nth-child(4):after {
+  top: 72px;
+  left: 40px;
+}
+.lds-roller div:nth-child(5) {
+  animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after {
+  top: 71px;
+  left: 32px;
+}
+.lds-roller div:nth-child(6) {
+  animation-delay: -0.216s;
+}
+.lds-roller div:nth-child(6):after {
+  top: 68px;
+  left: 24px;
+}
+.lds-roller div:nth-child(7) {
+  animation-delay: -0.252s;
+}
+.lds-roller div:nth-child(7):after {
+  top: 63px;
+  left: 17px;
+}
+.lds-roller div:nth-child(8) {
+  animation-delay: -0.288s;
+}
+.lds-roller div:nth-child(8):after {
+  top: 56px;
+  left: 12px;
+}
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.hvr-outline-out {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+}
+.hvr-outline-out:before {
+  content: '';
+  position: absolute;
+  border: black solid 4px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: top, right, bottom, left;
+  transition-property: top, right, bottom, left;
+}
+.hvr-outline-out:hover:before, .hvr-outline-out:focus:before, .hvr-outline-out:active:before {
+  top: -8px;
+  right: -8px;
+  bottom: -8px;
+  left: -8px;
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+#selectionButton {
+  width: 150px;
+  height: 40px;
+  position: absolute;
+  left: 50vw;
+  top: 50vh;
+  transform: translate(-50%,-80%);
+  font-family: 'Varela Round', sans-serif;
+  font-size: 2vw;
+  letter-spacing: 0.1em;
+  color: #e8e8e8;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  background: linear-gradient(45deg,darkorange,darkred,darkorange);
+  background-size: 400% 400%;
+  box-shadow: 1vw 1vw 0 black;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+}
+#selectionButton:hover {
+  animation: gradient 10s ease infinite;
+  font-size: 2.05vw;
+  box-shadow: 0.2vw 0.2vw 0 lightblue;
+}
+@keyframes gradient {
+  50% {
+    background-position: 100% 0;
+  }
+}
+
 

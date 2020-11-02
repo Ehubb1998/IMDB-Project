@@ -175,7 +175,7 @@ const ActionPage = () => {
                 <div id="logo">
                     <a onClick={handleLogoButton} href="/"><img src={logo} style={{ height: "150px" }} /></a>
                 </div>
-                <div style={{ backgroundColor: "lightgrey", boxShadow: "5px 5px black" }}>
+                <div style={{ backgroundColor: "lightgrey", boxShadow: "5px 5px black", position: "static" }}>
                     <h1 style={{ textAlign: "center" }}>Action</h1>
                 </div>
                 <div>
