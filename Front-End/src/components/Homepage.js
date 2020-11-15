@@ -111,6 +111,10 @@ const Homepage = (props) => {
         history.push(`/homepage/${props.userName}`);
     }
 
+    const handleContainer = () => {
+        window.document.getElementById("container-inner").style.cursor = "";
+    }
+
     setTimeout(() => {
         const loader = window.document.getElementById("loader");
         loader.style.display = "none";
@@ -131,6 +135,7 @@ const Homepage = (props) => {
 
             /* Set container to fixed position. Add animation */
             $(this).addClass('in-animation');
+            $(this).removeClass('hvr-float-shadow')
 
             /* An empty container has to be added in place of the lightbox container so that the elements below don't come up
             Dimensions of this empty container is the same as the original container */
@@ -168,6 +173,7 @@ const Homepage = (props) => {
         $("#close").on('click', function (e) {
             $("#close").hide();
             $("#movie1").hide();
+            window.document.getElementById("container-inner").style.cursor = "pointer";
 
             /* Window scrollbar normal */
             $("body").css('overflow', 'auto');
@@ -196,6 +202,7 @@ const Homepage = (props) => {
                 /* Delete the dynamic keyframe rule that was earlier created */
                 $("#lightbox-animations").get(0).sheet.deleteRule(0);
             }
+            $("#container-1").addClass('hvr-float-shadow');
         });
     }, [])
     
@@ -277,11 +284,13 @@ const Homepage = (props) => {
                 <div id="loader" style={{ display: "" }}>
                     <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                 </div>
-                <div id="container-1" style={{ display: "none" }}>
-                    <div id="container-inner">Marvel's The Avengers</div>
-                    <div id="close">Close</div>
-                    <div id="movie1">
-                        <img style={{height: "400px", width: "320px"}} src="https://imdb-lite-movie-posters.s3.amazonaws.com/Movie-Info/Posters/y9Omn1Z7fCkivwlXewEzoXZAz3W.jpg" />
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                    <div id="container-1" className="hvr-float-shadow" style={{ display: "none" }}>
+                        <div onClick={handleContainer} style={{ cursor: "pointer" }} id="container-inner">Marvel's The Avengers</div>
+                        <div style={{border: "1px solid white", padding: "3px"}} id="close">Close</div>
+                        <div id="movie1">
+                            <img style={{height: "400px", width: "320px"}} src="https://imdb-lite-movie-posters.s3.amazonaws.com/Movie-Info/Posters/y9Omn1Z7fCkivwlXewEzoXZAz3W.jpg" />
+                        </div>
                     </div>
                 </div>
             </main>

@@ -118,24 +118,34 @@ const Selection = (props) => {
 
     let selectedArr = [];
     const addCount = (e) => {
-        console.log(selectedArr);
-        if (selectedArr.includes(e.target.id) === true) {
-            console.log("already in array")
-            return;
+        if (selectedArr.includes(e.currentTarget.id) === true) {
+            window.document.getElementById(e.currentTarget.id).classList.toggle("hvr-outline-out");
+            window.document.getElementById(e.currentTarget.id).classList.toggle("active");
+            window.document.getElementById(e.currentTarget.id).classList.toggle("notActive");
+            for (let i = 0; i < selectedArr.length; i++) {
+                let movie = selectedArr[i];
+                if (movie === e.currentTarget.id) {
+                    selectedArr.splice(i, 1);
+                    count--;
+                    window.document.getElementById("selectedCount").innerHTML = `Selected: ${count}`;
+                    return;
+                }
+            }
         } else {
+            window.document.getElementById(e.target.id).classList.toggle("notActive");
+            window.document.getElementById(e.target.id).classList.toggle("hvr-outline-out");
+            window.document.getElementById(e.target.id).classList.toggle("active");
             selectedArr.push(e.target.id);
+            console.log(selectedArr);
         }
         if (selected === false) {
             count = 1;
             selected = true;
-            console.log("added number 1")
             window.document.getElementById("selectedCount").innerHTML = `Selected: ${count}`;
         } else {
             if (count === 8) {
-                console.log("alredy in array")
                 return;
             } else {
-                console.log("adding to count")
                 count++;
                 window.document.getElementById("selectedCount").innerHTML = `Selected: ${count}`;
             }
@@ -252,42 +262,46 @@ const Selection = (props) => {
                 <div style={{ backgroundColor: "lightgrey", boxShadow: "5px 5px black", position: "static" }}>
                     <h1 style={{ textAlign: "center" }}>Hey {props.userName}, do you like any of these movies below?</h1>
                 </div>
-                <div>
+                <div style={{ marginBottom: "20px" }}>
                     <h2 style={{ textAlign: "center" }}>The more you pick, the better I'll be able to know what you like</h2>
                 </div>
-                <div id="selectedCountDiv" style={{ display: "none", flexDirection: "row"}}>
-                    <h2 style={{justifyContent: "flex-start"}} id="selectedCount">Selected: {count}</h2>
-                    <button onClick={selectionButton} id="selectionButton">Continue</button>
+                <div id="selectedCountDiv" style={{ display: "none"}}>
+                    <div style={{ display: "flex", width: "1232px", justifyContent: "space-between" }}>
+                        <h2 id="selectedCount">Selected: {count}</h2>
+                        <div className="selectionContainer">
+                            <button onClick={selectionButton} className="selectionButton" >Continue</button>
+                        </div>
+                    </div>
                 </div>
                 <div id="loader" style={{display: ""}}>
                     <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                 </div>
                 <div id="selectionDiv" style={{display: "none"}}>
                     <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
-                        <div id="slide1" className="hvr-outline-out" onClick={addCount} style={{ cursor: "pointer", width: "300px", height: "400px"}}>
+                        <div id="slide1" className="hvr-outline-out hvr-shrink notActive" onClick={addCount} style={{ cursor: "pointer", width: "300px", height: "400px", borderTop: "", borderLeft: "", borderRight: "", borderBottom: ""}}>
                             <img style={{width: "300px", height: "400px"}} src="https://imdb-lite-movie-posters.s3.amazonaws.com/Movie-Info/Posters/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg" />
                         </div>
-                        <div id="slide2" className="hvr-outline-out" onClick={addCount} style={{ cursor: "pointer", width: "300px", height: "400px"}}>
+                        <div id="slide2" className="hvr-outline-out hvr-shrink notActive" onClick={addCount} style={{ cursor: "pointer", width: "300px", height: "400px", borderTop: "", borderLeft: "", borderRight: "", borderBottom: ""}}>
                             <img style={{width: "300px", height: "400px"}} src="https://imdb-lite-movie-posters.s3.amazonaws.com/Movie-Info/Posters/9aq2sHfkkAFwH0wi4bZasXA8NbS.jpg" />
                         </div>
-                        <div id="slide3" className="hvr-outline-out" onClick={addCount} style={{ cursor: "pointer", width: "300px", height: "400px"}}>
+                        <div id="slide3" className="hvr-outline-out hvr-shrink notActive" onClick={addCount} style={{ cursor: "pointer", width: "300px", height: "400px", borderTop: "", borderLeft: "", borderRight: "", borderBottom: ""}}>
                             <img style={{width: "300px", height: "400px"}} src="https://imdb-lite-movie-posters.s3.amazonaws.com/Movie-Info/Posters/fnbjcRDYn6YviCcePDnGdyAkYsB.jpg" />
                         </div>
-                        <div id="slide4" className="hvr-outline-out" onClick={addCount} style={{ cursor: "pointer", width: "300px", height: "400px"}}>
+                        <div id="slide4" className="hvr-outline-out hvr-shrink notActive" onClick={addCount} style={{ cursor: "pointer", width: "300px", height: "400px", borderTop: "", borderLeft: "", borderRight: "", borderBottom: ""}}>
                             <img style={{width: "300px", height: "400px"}} src="https://imdb-lite-movie-posters.s3.amazonaws.com/Movie-Info/Posters/gncn6h4AKNvb3NavVQXo1gvqfB6.jpg" />
                         </div>
                     </div>
                     <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", marginTop: "10px" }}>
-                        <div id="slide5" className="hvr-outline-out" onClick={addCount} style={{ cursor: "pointer", width: "300px", height: "400px"}}>
+                        <div id="slide5" className="hvr-outline-out hvr-shrink notActive" onClick={addCount} style={{ cursor: "pointer", width: "300px", height: "400px", borderTop: "", borderLeft: "", borderRight: "", borderBottom: ""}}>
                             <img style={{ width: "300px", height: "400px" }} src="https://imdb-lite-movie-posters.s3.amazonaws.com/Movie-Info/Posters/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg" />
                         </div>
-                        <div id="slide6" className="hvr-outline-out" onClick={addCount} style={{ cursor: "pointer", width: "300px", height: "400px"}}>
+                        <div id="slide6" className="hvr-outline-out hvr-shrink notActive" onClick={addCount} style={{ cursor: "pointer", width: "300px", height: "400px", borderTop: "", borderLeft: "", borderRight: "", borderBottom: ""}}>
                             <img style={{ width: "300px", height: "400px" }} src="https://imdb-lite-movie-posters.s3.amazonaws.com/Movie-Info/Posters/rLGGdPsU4m9TNjCpUMr1GlMuO8y.jpg" />
                         </div>
-                        <div id="slide7" className="hvr-outline-out" onClick={addCount} style={{ cursor: "pointer", width: "300px", height: "400px"}}>
+                        <div id="slide7" className="hvr-outline-out hvr-shrink notActive" onClick={addCount} style={{ cursor: "pointer", width: "300px", height: "400px", borderTop: "", borderLeft: "", borderRight: "", borderBottom: ""}}>
                             <img style={{ width: "300px", height: "400px" }} src="https://imdb-lite-movie-posters.s3.amazonaws.com/Movie-Info/Posters/tCpmXeXtzNIxqcpkDwkHpvd9M25.jpg" />
                         </div>
-                        <div id="slide8" className="hvr-outline-out" onClick={addCount} style={{ cursor: "pointer", width: "300px", height: "400px"}}>
+                        <div id="slide8" className="hvr-outline-out hvr-shrink notActive" onClick={addCount} style={{ cursor: "pointer", width: "300px", height: "400px", borderTop: "", borderLeft: "", borderRight: "", borderBottom: ""}}>
                             <img style={{ width: "300px", height: "400px" }} src="https://imdb-lite-movie-posters.s3.amazonaws.com/Movie-Info/Posters/tKOb2QvEb038DqiRVU7kwhPlSxV.jpg" />
                         </div>
                 </div>
