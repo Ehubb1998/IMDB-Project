@@ -122,14 +122,6 @@ const Homepage = (props) => {
         // window.document.getElementById("selectedCountDiv").style.display = "flex";
         // window.document.getElementById("selectionDiv2").style.display = "";
     }, 2300)
-
-    const recommendedHover = () => {
-        window.document.getElementById("container-1").classList.toggle("container-1-hover");
-    }
-
-    const recommendedUnHover = () => {
-        window.document.getElementById("container-1").classList.toggle("container-1-hover");
-    }
     
     useEffect(() => {
         /* We need to create dynamic keyframes to show the animation from full-screen to normal. So we create a stylesheet in which we can insert CSS keyframe rules */
@@ -137,6 +129,7 @@ const Homepage = (props) => {
 
         /* Click on the container */
         $("#container-1").on('click', function () {
+            window.document.getElementById("container-1").classList.toggle("recommendedBox");
             /* The position of the container will be set to fixed, so set the top & left properties of the container */
             var bounding_box = $("#container-1").get(0).getBoundingClientRect();
             $(this).css({ top: bounding_box.top + 'px', left: bounding_box.left + 'px' });
@@ -181,6 +174,7 @@ const Homepage = (props) => {
             $("#close").hide();
             $("#movie1").hide();
             window.document.getElementById("container-inner").style.cursor = "pointer";
+            window.document.getElementById("container-1").classList.toggle("recommendedBox");
 
             /* Window scrollbar normal */
             $("body").css('overflow', 'auto');
@@ -291,7 +285,7 @@ const Homepage = (props) => {
                     <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                 </div>
                 <div style={{ display: "flex", justifyContent: "center" }}>
-                    <div id="container-1" onMouseEnter={recommendedHover} onMouseLeave={recommendedUnHover} style={{ display: "none", border: "" }}>
+                    <div id="container-1" className="recommendedBox blurrImg" style={{ display: "none" }}>
                         <div onClick={handleContainer} style={{ cursor: "pointer" }} id="container-inner">Marvel's The Avengers</div>
                         <div style={{border: "1px solid white", padding: "3px"}} id="close">Close</div>
                         <div id="movie1">
