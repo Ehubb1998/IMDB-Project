@@ -7,6 +7,22 @@ body {
 }
 
 /* Lightbox container */
+.positionContainer {
+	position: relative;
+}
+
+.positionBox {
+	width: 500px;
+	position: absolute;
+}
+
+.positionTitle {
+	position: absolute;
+	margin-left: 100px;
+	margin-top: 80px;
+	z-index: 5;
+}
+
 .blurrImg {
 	background-image: url("https://imdb-lite-movie-posters.s3.amazonaws.com/Movie-Info/Posters/y9Omn1Z7fCkivwlXewEzoXZAz3W.jpg");
 	filter: blur(8px);
@@ -14,7 +30,7 @@ body {
 	height: 100%;
 	background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+	background-size: cover;
 }
 
 #container-1 {
@@ -28,7 +44,6 @@ body {
 }
 
 #container-inner {
-	position: absolute;
 	font-weight: 700;
 	line-height: 200px;
 }
