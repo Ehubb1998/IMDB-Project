@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { logOut } from '../store/actions/auth';
 import logo from '../logo/logo.png';
 import $ from 'jquery';
+import Avengers from '../avengers.jpg';
 
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -115,6 +116,10 @@ const Homepage = (props) => {
         window.document.getElementById("container-inner").style.cursor = "";
     }
 
+    const handleClicker = () => {
+        return;
+    }
+
     setTimeout(() => {
         const loader = window.document.getElementById("loader");
         loader.style.display = "none";
@@ -123,12 +128,14 @@ const Homepage = (props) => {
         // window.document.getElementById("selectionDiv2").style.display = "";
     }, 2300)
     
+    let inFullScreen = false;
     useEffect(() => {
         /* We need to create dynamic keyframes to show the animation from full-screen to normal. So we create a stylesheet in which we can insert CSS keyframe rules */
         $("body").append('<style id="lightbox-animations" type="text/css"></style>');
 
         /* Click on the container */
         $("#container-1").on('click', function () {
+            if (inFullScreen === true) return;
             window.document.getElementById("container-1").classList.toggle("recommendedBox");
             /* The position of the container will be set to fixed, so set the top & left properties of the container */
             var bounding_box = $("#container-1").get(0).getBoundingClientRect();
@@ -191,6 +198,7 @@ const Homepage = (props) => {
         $("#container-1").on('animationend', function (e) {
             /* On animation end from normal to full-screen */
             if (e.originalEvent.animationName == 'inlightbox') {
+                inFullScreen = true;
                 $("#close").show();
                 $("#movie1").show();
                 window.document.getElementById("container-1").classList.toggle("blurrImg");
@@ -198,6 +206,7 @@ const Homepage = (props) => {
             }
             /* On animation end from full-screen to normal */
             else if (e.originalEvent.animationName == 'outlightbox') {
+                inFullScreen = false;
                 /* Remove fixed positioning, remove animation rules */
                 $("#container-1").removeClass('in-animation').removeClass('out-animation');
 
@@ -289,11 +298,11 @@ const Homepage = (props) => {
                     <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                 </div>
                 <div style={{ display: "flex", justifyContent: "center" }}>
-                    <div id="container-1" className="recommendedBox blurrImg" style={{ display: "none" }}>
+                    <div onClick={handleClicker} id="container-1" className="recommendedBox blurrImg" style={{ display: "none" }}>
                         <div onClick={handleContainer} style={{ cursor: "pointer", filter: "" }} id="container-inner">Marvel's The Avengers</div>
                         <div style={{border: "1px solid white", padding: "3px", overflow: "", filter: "" }} id="close">Close</div>
                         <div id="movie1">
-                            <img style={{height: "400px", width: "320px", overflow: ""}} src="https://imdb-lite-movie-posters.s3.amazonaws.com/Movie-Info/Posters/y9Omn1Z7fCkivwlXewEzoXZAz3W.jpg" />
+                            <img style={{height: "400px", width: "320px", overflow: ""}} src={Avengers} />
                         </div>
                     </div>
                 </div>
