@@ -304,6 +304,7 @@ const Homepage = (props) => {
                                 <div id="movie1">
                                     <img style={{height: "400px", width: "320px", overflow: ""}} src={Avengers} alt="" />
                                 </div>
+                                <h3 id="fullscreenTitle">Marvel's The Avengers</h3>
                             </div>
                         </picture>
                     </div>
