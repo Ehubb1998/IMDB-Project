@@ -178,8 +178,8 @@ const Homepage = (props) => {
 
         /* Click on close button when full-screen */
         $("#close").on('click', function (e) {
-            $("#close").hide();
-            $("#movie1").hide();
+            $("#fullscreenBlurr").hide();
+            
             window.document.getElementById("container-inner").style.cursor = "pointer";
             window.document.getElementById("container-1").classList.toggle("recommendedBox");
 
@@ -190,7 +190,6 @@ const Homepage = (props) => {
             $("#container-1").addClass('out-animation');
 
             e.stopPropagation();
-            window.document.getElementById("container-1").classList.toggle("recommendedFull");
             window.document.getElementById("container-1").classList.toggle("blurrImg");
         });
 
@@ -199,10 +198,8 @@ const Homepage = (props) => {
             /* On animation end from normal to full-screen */
             if (e.originalEvent.animationName == 'inlightbox') {
                 inFullScreen = true;
-                $("#close").show();
-                $("#movie1").show();
+                $("#fullscreenBlurr").show();
                 window.document.getElementById("container-1").classList.toggle("blurrImg");
-                window.document.getElementById("container-1").classList.toggle("recommendedFull");
             }
             /* On animation end from full-screen to normal */
             else if (e.originalEvent.animationName == 'outlightbox') {
@@ -300,10 +297,15 @@ const Homepage = (props) => {
                 <div style={{ display: "flex", justifyContent: "center" }}>
                     <div onClick={handleClicker} id="container-1" className="recommendedBox blurrImg" style={{ display: "none" }}>
                         <div onClick={handleContainer} style={{ cursor: "pointer", filter: "" }} id="container-inner">Marvel's The Avengers</div>
-                        <div style={{border: "1px solid white", padding: "3px", overflow: "", filter: "" }} id="close">Close</div>
-                        <div id="movie1">
-                            <img style={{height: "400px", width: "320px", overflow: ""}} src={Avengers} />
-                        </div>
+                        <picture id="fullscreenBlurr">
+                            <img id="fullscreenImg" src={Avengers} alt=""/>
+                            <div id="fullscreenDiv">
+                                <div style={{border: "1px solid white", padding: "3px", overflow: "", filter: "" }} id="close">Close</div>
+                                <div id="movie1">
+                                    <img style={{height: "400px", width: "320px", overflow: ""}} src={Avengers} alt="" />
+                                </div>
+                            </div>
+                        </picture>
                     </div>
                 </div>
             </main>
