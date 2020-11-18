@@ -314,7 +314,10 @@ const Homepage = (props) => {
                                 <div id="movie1">
                                     <img style={{height: "450px", width: "320px", overflow: ""}} src={Avengers} alt="" />
                                 </div>
-                                <h3 id="fullscreenTitle">Marvel's The Avengers</h3>
+                                {/* <h3 id="fullscreenTitle">Marvel's The Avengers</h3> */}
+                                <div id="fullscreenTitle">
+                                    <button style={{ margin: "auto", fontSize: "13px" }} className="selectionButton" >Marvel's The Avengers</button>
+                                </div>
                             </div>
                         </picture>
                     </div>
