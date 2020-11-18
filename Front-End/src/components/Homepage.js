@@ -124,30 +124,31 @@ const Homepage = (props) => {
         const loader = window.document.getElementById("loader");
         loader.style.display = "none";
         window.document.getElementById("container-1").style.display = "";
-        // window.document.getElementById("selectedCountDiv").style.display = "flex";
-        // window.document.getElementById("selectionDiv2").style.display = "";
     }, 2300)
     
     let inFullScreen = false;
     useEffect(() => {
         /* We need to create dynamic keyframes to show the animation from full-screen to normal. So we create a stylesheet in which we can insert CSS keyframe rules */
         $("body").append('<style id="lightbox-animations" type="text/css"></style>');
-
+        
         /* Click on the container */
         $("#container-1").on('click', function () {
             if (inFullScreen === true) return;
+            window.document.getElementById("recTitle").style.display = "none";
+            window.document.getElementById("container-inner").classList.toggle("blurrImg");
+            window.document.getElementById("container-1").classList.toggle("blurrImg");
             window.document.getElementById("container-1").classList.toggle("recommendedBox");
             /* The position of the container will be set to fixed, so set the top & left properties of the container */
             var bounding_box = $("#container-1").get(0).getBoundingClientRect();
             $(this).css({ top: bounding_box.top + 'px', left: bounding_box.left + 'px' });
-
+            
             /* Set container to fixed position. Add animation */
             $(this).addClass('in-animation');
-
+            
             /* An empty container has to be added in place of the lightbox container so that the elements below don't come up
             Dimensions of this empty container is the same as the original container */
             $('<div id="empty-container"></div>').insertAfter("#container-1");
-
+            
             /* To animate the container from full-screen to normal, we need dynamic keyframes */
             var styles = '';
             styles = '@keyframes outlightbox {';
@@ -168,31 +169,32 @@ const Homepage = (props) => {
             styles += 'left: ' + bounding_box.x + 'px;';
             styles += '}';
             styles += '}';
-
+            
             /* Add keyframe to CSS */
             $("#lightbox-animations").get(0).sheet.insertRule(styles, 0);
-
+            
             /* Hide the window scrollbar */
             $("body").css('overflow', 'hidden');
         });
-
+        
         /* Click on close button when full-screen */
         $("#close").on('click', function (e) {
             $("#fullscreenBlurr").hide();
             
             window.document.getElementById("container-inner").style.cursor = "pointer";
             window.document.getElementById("container-1").classList.toggle("recommendedBox");
-
+            
             /* Window scrollbar normal */
             $("body").css('overflow', 'auto');
-
+            
             /* Show animation */
             $("#container-1").addClass('out-animation');
-
+            
             e.stopPropagation();
             window.document.getElementById("container-1").classList.toggle("blurrImg");
+            window.document.getElementById("recTitle").style.display = "";
         });
-
+        
         /* On animationend : from normal to full screen & full screen to normal */
         $("#container-1").on('animationend', function (e) {
             /* On animation end from normal to full-screen */
@@ -200,6 +202,8 @@ const Homepage = (props) => {
                 inFullScreen = true;
                 $("#fullscreenBlurr").show();
                 window.document.getElementById("container-1").classList.toggle("blurrImg");
+                window.document.getElementById("container-inner").classList.toggle("positionBox");
+                window.document.getElementById("container-1").classList.toggle("positionContainer");
             }
             /* On animation end from full-screen to normal */
             else if (e.originalEvent.animationName == 'outlightbox') {
@@ -212,6 +216,8 @@ const Homepage = (props) => {
 
                 /* Delete the dynamic keyframe rule that was earlier created */
                 $("#lightbox-animations").get(0).sheet.deleteRule(0);
+                window.document.getElementById("container-1").classList.toggle("blurrImg");
+                window.document.getElementById("container-inner").classList.toggle("blurrImg");
             }
         });
     }, [])
@@ -295,14 +301,18 @@ const Homepage = (props) => {
                     <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                 </div>
                 <div style={{ display: "flex", justifyContent: "center" }}>
-                    <div onClick={handleClicker} id="container-1" className="recommendedBox blurrImg" style={{ display: "none" }}>
-                        <div onClick={handleContainer} style={{ cursor: "pointer", filter: "" }} id="container-inner">Marvel's The Avengers</div>
+                    <div onClick={handleClicker} id="container-1" className="recommendedBox" style={{ display: "none" }}>
+                        <div id="recTitle" className="positionTitle">
+                            <h3 style={{ textAlign: "center" }} >Marvel's The Avengers</h3>
+                        </div>
+                        <div onClick={handleContainer} style={{ cursor: "pointer", filter: "" }} className="blurrImg" id="container-inner">Marvel's The Avengers</div>
                         <picture id="fullscreenBlurr">
                             <img id="fullscreenImg" src={Avengers} alt=""/>
                             <div id="fullscreenDiv">
-                                <div style={{border: "1px solid white", padding: "3px", overflow: "", filter: "" }} id="close">Close</div>
+                                {/* <div style={{border: "1px solid white", padding: "3px", overflow: "", filter: "" }} id="close">Close</div> */}
+                                <button id="close" className="selectionButton" >Close</button>
                                 <div id="movie1">
-                                    <img style={{height: "400px", width: "320px", overflow: ""}} src={Avengers} alt="" />
+                                    <img style={{height: "450px", width: "320px", overflow: ""}} src={Avengers} alt="" />
                                 </div>
                                 <h3 id="fullscreenTitle">Marvel's The Avengers</h3>
                             </div>

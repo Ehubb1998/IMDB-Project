@@ -7,20 +7,13 @@ body {
 }
 
 /* Lightbox container */
-.positionContainer {
-	position: relative;
-}
-
-.positionBox {
-	width: 500px;
-	position: absolute;
-}
-
 .positionTitle {
 	position: absolute;
-	margin-left: 100px;
-	margin-top: 80px;
+	height: 50px;
+	width: 500px;
+	margin-top: 73px;
 	z-index: 5;
+	display: "";
 }
 
 .blurrImg {
@@ -91,7 +84,7 @@ body {
 #close {
 	position: absolute;
 	right: 20px;
-	top: -80px;
+	top: -90px;
 	cursor: pointer;
 	margin-top: 100px;
 }
