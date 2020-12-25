@@ -27,6 +27,7 @@ import WatchLaterIcon from '@material-ui/icons/WatchLater';
 import RateReviewIcon from '@material-ui/icons/RateReview';
 import MovieIcon from '@material-ui/icons/Movie';
 import LockIcon from '@material-ui/icons/Lock';
+import clip from '../Avengers-Trailer.mp4'
 
 const drawerWidth = 240;
 
@@ -125,6 +126,19 @@ const Homepage = (props) => {
         loader.style.display = "none";
         window.document.getElementById("container-1").style.display = "";
     }, 2300)
+
+    let isPlaying = true;
+    const handleVideo = () => {
+        const videoBox = window.document.getElementById("recVideo");
+        if (isPlaying === true) {
+            videoBox.pause();
+            isPlaying = false;
+        } else {
+            videoBox.play();
+            isPlaying = true;
+        }
+
+    }
     
     let inFullScreen = false;
     useEffect(() => {
@@ -179,6 +193,9 @@ const Homepage = (props) => {
         
         /* Click on close button when full-screen */
         $("#close").on('click', function (e) {
+            const videoBox = window.document.getElementById("recVideo");
+            videoBox.pause();
+            videoBox.currentTime = 0;
             $("#fullscreenBlurr").hide();
             
             window.document.getElementById("container-inner").style.cursor = "pointer";
@@ -204,6 +221,8 @@ const Homepage = (props) => {
                 window.document.getElementById("container-1").classList.toggle("blurrImg");
                 window.document.getElementById("container-inner").classList.toggle("positionBox");
                 window.document.getElementById("container-1").classList.toggle("positionContainer");
+                const videoBox = window.document.getElementById("recVideo");
+                videoBox.play();
             }
             /* On animation end from full-screen to normal */
             else if (e.originalEvent.animationName == 'outlightbox') {
@@ -317,6 +336,12 @@ const Homepage = (props) => {
                                 {/* <h3 id="fullscreenTitle">Marvel's The Avengers</h3> */}
                                 <div id="fullscreenTitle">
                                     <button style={{ margin: "auto", fontSize: "13px" }} className="selectionButton" >Marvel's The Avengers</button>
+                                </div>
+                                <div id="movieTrailers" style={{ position: "absolute", top: "120px", left: "330px", width: "850px", height: "300px" }}>
+                                    <video id="recVideo" onClick={handleVideo} width="800"><source src={clip} type="video/mp4" /></video>
+                                </div>
+                                <div id="movieDetails" style={{position: "absolute", top: "80px", left: "360px", textAlign: "left"}}>
+                                    <p>Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.</p>
                                 </div>
                             </div>
                         </picture>

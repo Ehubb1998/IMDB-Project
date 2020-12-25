@@ -93,8 +93,14 @@ body {
 	position: absolute;
 	height: 400px;
 	width: 320px;
-	top: 70px;
+	top: 85px;
 	left: 20px
+}
+
+.movieDetails {
+	position: absolute;
+	top: 100px;
+	left: 100px;
 }
 
 .in-animation {
@@ -150,4 +156,24 @@ transition: all 0.4s;
   -webkit-transition: all 0.4s;
 -moz-transition: all 0.4s;
 transition: all 0.4s;
+}
+
+.slider-tabs.nav {
+  position: relative;
+  margin: 10px;
+}
+
+.slider-tabs.nav .nav-link.active {
+  background: transparent !important;
+  color: #8b076e;
+}
+
+.slider-tabs.nav .indicator {
+  position: absolute;
+  top: 100%;
+  min-width: 0;
+  width: 0;
+  height: 5px;
+  background: red;
+  transition: left .3s, width .3s;
 }

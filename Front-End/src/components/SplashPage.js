@@ -107,6 +107,7 @@ const SplashPage = (props) => {
                 className={clsx(classes.appBar, {
                     [classes.appBarShift]: open,
                 })}
+                style={{backgroundColor: "lightgrey", color: "black"}}
             >
                 <Toolbar>
                     <IconButton
