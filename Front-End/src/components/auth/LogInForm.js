@@ -14,7 +14,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
-// import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
@@ -22,9 +21,6 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-// import HomeIcon from '@material-ui/icons/Home';
-// import WatchLaterIcon from '@material-ui/icons/WatchLater';
-// import RateReviewIcon from '@material-ui/icons/RateReview';
 import MovieIcon from '@material-ui/icons/Movie';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
@@ -106,23 +102,6 @@ const LogInForm = (props) => {
 
     useEffect(() => {
         if (props.msg) {
-            // return (
-            //     <div>
-            //         <form className="log-in-form">
-            //             <h1 id="Login-header">Sign in to IMDB Lite</h1>
-            //             <div className="errDiv">
-            //                 <h3 style="font-size: 30px;font-weight: 700;color: red">{props.title}</h3>
-            //                     <li style="font-size: 20px">{props.msg}</li>
-            //             </div>
-            //             <label htmlFor="userName">Username</label>
-            //             <input onChange={updateUserName} value={userName} type="text" name="userName" id="userNameField" className="log-in-form" placeholder="IMDB" required />
-            //             <label htmlFor="password">Password</label>
-            //             <input onChange={updatePassword} value={password} type="password" name="password" id="passwordField" className="log-in-form" required />
-            //             <button onClick={handleSubmit} type="submit" className="log-in-button">Log-In</button>
-            //             <button onClick={handleDemo} className="demoButton">Demo</button>
-            //         </form>
-            //     </div>
-            // )
             const errDiv = window.document.querySelector(".errDiv");
             const errTitle = window.document.createElement("h4")
             const invalidCred = window.document.createElement("li");
@@ -142,12 +121,11 @@ const LogInForm = (props) => {
                 window.document.getElementById("passwordField").style.borderColor = "red"
             }
         }
+        // eslint-disable-next-line
     }, [props.msg])
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // props.updateUserNameValue(e);
-        // props.updatePasswordValue(e);
         props.logIn(userName, password);
     }
 
@@ -175,6 +153,7 @@ const LogInForm = (props) => {
                 className={clsx(classes.appBar, {
                     [classes.appBarShift]: open,
                 })}
+                style={{backgroundColor: "lightgrey", color: "black"}}
             >
                 <Toolbar>
                     <IconButton
@@ -205,22 +184,6 @@ const LogInForm = (props) => {
                         {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
                     </IconButton>
                 </div>
-                {/* <Divider />
-                <List>
-                    {['Home', 'Watch Later'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <HomeIcon /> : <WatchLaterIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItem>
-                    ))}
-                    {['My Reviews', 'What to Watch'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <RateReviewIcon /> : <MovieIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItem>
-                    ))}
-                </List>
-                <Divider /> */}
                 <List>
                     {['Login'].map((text, index) => (
                         <ListItem button component={Link} to="/log-in" key={text}>
@@ -236,21 +199,9 @@ const LogInForm = (props) => {
                 })}
             >
                 <div className={classes.drawerHeader} />
-                {/* <div>
-                    <form className="log-in-form">
-                        <h1 id="Login-header">Sign in to IMDB Lite</h1>
-                        <div className="errDiv"></div>
-                        <label htmlFor="userName">Username</label>
-                        <input onChange={updateUserName} value={userName} type="text" name="userName" id="userNameField" className="log-in-form" placeholder="IMDB" required />
-                        <label htmlFor="password">Password</label>
-                        <input onChange={updatePassword} value={password} type="password" name="password" id="passwordField" className="log-in-form" required />
-                        <button onClick={handleSubmit} type="submit" className="log-in-button">Log-In</button>
-                        <button onClick={handleDemo} className="demoButton">Demo</button>
-                    </form>
-                </div> */}
-                        <div id="logo">
-                            <a href="/"><img src={logo} style={{ height: "100px" }} /></a>
-                        </div>
+                    <div id="logo">
+                        <a href="/"><img src={logo} alt="logo" style={{ height: "100px" }} /></a>
+                    </div>
                 <div className="log-in-form">
                     <div style={{backgroundColor: "lightgray", borderRadius: "18px"}}>
                         <Form>
@@ -268,9 +219,6 @@ const LogInForm = (props) => {
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control onChange={updatePassword} value={password} type="password" id="passwordField" placeholder="Password" required />
                             </Form.Group>
-                            {/* <Form.Group controlId="formBasicCheckbox">
-                                <Form.Check type="checkbox" label="Check me out" />
-                            </Form.Group> */}
                             <Button variant="primary" onClick={handleSubmit} type="submit" className="log-in-button">Submit</Button>
                             <span style={{marginLeft: "4px"}}>
                             <Button onClick={handleDemo} styleclassName="demoButton" variant="primary" type="submit" >Demo</Button>

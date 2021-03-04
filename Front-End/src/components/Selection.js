@@ -112,7 +112,8 @@ const Selection = (props) => {
         history.push(`/homepage/${props.userName}`);
     }
 
-    const handleLogoButton = () => {
+    const handleLogoButton = (e) => {
+        e.preventDefault();
         history.push(`/homepage/${props.userName}`);
     }
 
@@ -154,39 +155,11 @@ const Selection = (props) => {
         }
     }
 
-    // const startHover = (e) => {
-    //     console.log(e.target.parentElement);
-    //     if (selected === false) {
-    //         // const selectedMovie = document.getElementById(e.target.parentElement);
-    //         e.target.parentElement.setAttribute("class", "hvr-reveal");
-    //         // console.log(selectedMovie);
-    //     }
-    // }
-
-    // const stopHover = (e) => {
-    //     if (selected === false) {
-    //         // const selectedMovie = document.getElementById(e.target.parentElement);
-    //         e.target.parentElement.removeAttribute("class", "hvr-reveal");
-    //     }
-    // }
-
-    // const selectMovie = (e) => {
-    //     const selectedMovie = document.getElementById(e.target.parentElement);
-    //     if (selected === false) {
-    //         // selectedMovie.setAttribute("class", "hvr-icon-pulse");
-    //         selected = true;
-    //     } else {
-    //         // selectedMovie.removeAttribute("class", "hvr-icon-pulse");
-    //         selected = false;
-    //     }
-    // }
-
     setTimeout(() => {
         const loader = window.document.getElementById("loader");
         loader.style.display = "none";
         window.document.getElementById("selectionDiv").style.display = "";
         window.document.getElementById("selectedCountDiv").style.display = "flex";
-        // window.document.getElementById("selectionDiv2").style.display = "";
     }, 2300)
 
     return (
@@ -197,6 +170,7 @@ const Selection = (props) => {
                 className={clsx(classes.appBar, {
                     [classes.appBarShift]: open,
                 })}
+                style={{backgroundColor: "lightgrey", color: "black"}}
             >
                 <Toolbar>
                     <IconButton
@@ -259,7 +233,7 @@ const Selection = (props) => {
             >
                 <div className={classes.drawerHeader} />
                 <div id="logo">
-                    <a onClick={handleLogoButton} href=""><img src={logo} style={{ height: "150px" }} /></a>
+                    <a onClick={handleLogoButton} href="/homepage"><img src={logo} alt="logo" style={{ height: "150px" }} /></a>
                 </div>
                 <div style={{ backgroundColor: "lightgrey", boxShadow: "5px 5px black", position: "static" }}>
                     <h1 style={{ textAlign: "center" }}>Hey {props.userName}, do you like any of these movies below?</h1>
@@ -281,30 +255,30 @@ const Selection = (props) => {
                 <div id="selectionDiv" style={{display: "none"}}>
                     <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
                         <div id="slide1" className="hvr-outline-out hvr-shrink notActive" onClick={addCount} style={{ cursor: "pointer", width: "300px", height: "400px", borderTop: "", borderLeft: "", borderRight: "", borderBottom: ""}}>
-                            <img style={{width: "300px", height: "400px", border: ""}} src="https://imdb-lite-movie-posters.s3.amazonaws.com/Movie-Info/Posters/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg" />
+                            <img style={{width: "300px", height: "400px", border: ""}} alt="moviePoster" src="https://imdb-lite-movie-posters.s3.amazonaws.com/Movie-Info/Posters/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg" />
                         </div>
                         <div id="slide2" className="hvr-outline-out hvr-shrink notActive" onClick={addCount} style={{ cursor: "pointer", width: "300px", height: "400px", borderTop: "", borderLeft: "", borderRight: "", borderBottom: ""}}>
-                            <img style={{width: "300px", height: "400px", border: ""}} src="https://imdb-lite-movie-posters.s3.amazonaws.com/Movie-Info/Posters/9aq2sHfkkAFwH0wi4bZasXA8NbS.jpg" />
+                            <img style={{width: "300px", height: "400px", border: ""}} alt="moviePoster" src="https://imdb-lite-movie-posters.s3.amazonaws.com/Movie-Info/Posters/9aq2sHfkkAFwH0wi4bZasXA8NbS.jpg" />
                         </div>
                         <div id="slide3" className="hvr-outline-out hvr-shrink notActive" onClick={addCount} style={{ cursor: "pointer", width: "300px", height: "400px", borderTop: "", borderLeft: "", borderRight: "", borderBottom: ""}}>
-                            <img style={{width: "300px", height: "400px", border: ""}} src="https://imdb-lite-movie-posters.s3.amazonaws.com/Movie-Info/Posters/fnbjcRDYn6YviCcePDnGdyAkYsB.jpg" />
+                            <img style={{width: "300px", height: "400px", border: ""}} alt="moviePoster" src="https://imdb-lite-movie-posters.s3.amazonaws.com/Movie-Info/Posters/fnbjcRDYn6YviCcePDnGdyAkYsB.jpg" />
                         </div>
                         <div id="slide4" className="hvr-outline-out hvr-shrink notActive" onClick={addCount} style={{ cursor: "pointer", width: "300px", height: "400px", borderTop: "", borderLeft: "", borderRight: "", borderBottom: ""}}>
-                            <img style={{width: "300px", height: "400px", border: ""}} src="https://imdb-lite-movie-posters.s3.amazonaws.com/Movie-Info/Posters/gncn6h4AKNvb3NavVQXo1gvqfB6.jpg" />
+                            <img style={{width: "300px", height: "400px", border: ""}} alt="moviePoster" src="https://imdb-lite-movie-posters.s3.amazonaws.com/Movie-Info/Posters/gncn6h4AKNvb3NavVQXo1gvqfB6.jpg" />
                         </div>
                     </div>
                     <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", marginTop: "10px" }}>
                         <div id="slide5" className="hvr-outline-out hvr-shrink notActive" onClick={addCount} style={{ cursor: "pointer", width: "300px", height: "400px", borderTop: "", borderLeft: "", borderRight: "", borderBottom: ""}}>
-                            <img style={{ width: "300px", height: "400px", border: "" }} src="https://imdb-lite-movie-posters.s3.amazonaws.com/Movie-Info/Posters/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg" />
+                            <img style={{ width: "300px", height: "400px", border: "" }} alt="moviePoster" src="https://imdb-lite-movie-posters.s3.amazonaws.com/Movie-Info/Posters/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg" />
                         </div>
                         <div id="slide6" className="hvr-outline-out hvr-shrink notActive" onClick={addCount} style={{ cursor: "pointer", width: "300px", height: "400px", borderTop: "", borderLeft: "", borderRight: "", borderBottom: ""}}>
-                            <img style={{ width: "300px", height: "400px", border: "" }} src="https://imdb-lite-movie-posters.s3.amazonaws.com/Movie-Info/Posters/rLGGdPsU4m9TNjCpUMr1GlMuO8y.jpg" />
+                            <img style={{ width: "300px", height: "400px", border: "" }} alt="moviePoster" src="https://imdb-lite-movie-posters.s3.amazonaws.com/Movie-Info/Posters/rLGGdPsU4m9TNjCpUMr1GlMuO8y.jpg" />
                         </div>
                         <div id="slide7" className="hvr-outline-out hvr-shrink notActive" onClick={addCount} style={{ cursor: "pointer", width: "300px", height: "400px", borderTop: "", borderLeft: "", borderRight: "", borderBottom: ""}}>
-                            <img style={{ width: "300px", height: "400px", border: "" }} src="https://imdb-lite-movie-posters.s3.amazonaws.com/Movie-Info/Posters/tCpmXeXtzNIxqcpkDwkHpvd9M25.jpg" />
+                            <img style={{ width: "300px", height: "400px", border: "" }} alt="moviePoster" src="https://imdb-lite-movie-posters.s3.amazonaws.com/Movie-Info/Posters/tCpmXeXtzNIxqcpkDwkHpvd9M25.jpg" />
                         </div>
                         <div id="slide8" className="hvr-outline-out hvr-shrink notActive" onClick={addCount} style={{ cursor: "pointer", width: "300px", height: "400px", borderTop: "", borderLeft: "", borderRight: "", borderBottom: ""}}>
-                            <img style={{ width: "300px", height: "400px", border: "" }} src="https://imdb-lite-movie-posters.s3.amazonaws.com/Movie-Info/Posters/tKOb2QvEb038DqiRVU7kwhPlSxV.jpg" />
+                            <img style={{ width: "300px", height: "400px", border: "" }} alt="moviePoster" src="https://imdb-lite-movie-posters.s3.amazonaws.com/Movie-Info/Posters/tKOb2QvEb038DqiRVU7kwhPlSxV.jpg" />
                         </div>
                     </div>
                 </div>

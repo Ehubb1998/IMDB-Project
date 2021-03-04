@@ -109,7 +109,8 @@ const Homepage = (props) => {
         window.location.href = "/";
     };
 
-    const handleLogoButton = () => {
+    const handleLogoButton = (e) => {
+        e.preventDefault();
         history.push(`/homepage/${props.userName}`);
     }
 
@@ -215,7 +216,9 @@ const Homepage = (props) => {
         /* On animationend : from normal to full screen & full screen to normal */
         $("#container-1").on('animationend', function (e) {
             /* On animation end from normal to full-screen */
+            // eslint-disable-next-line
             if (e.originalEvent.animationName == 'inlightbox') {
+                // eslint-disable-next-line
                 inFullScreen = true;
                 $("#fullscreenBlurr").show();
                 window.document.getElementById("container-1").classList.toggle("blurrImg");
@@ -225,6 +228,7 @@ const Homepage = (props) => {
                 videoBox.play();
             }
             /* On animation end from full-screen to normal */
+            // eslint-disable-next-line
             else if (e.originalEvent.animationName == 'outlightbox') {
                 inFullScreen = false;
                 /* Remove fixed positioning, remove animation rules */
@@ -249,6 +253,7 @@ const Homepage = (props) => {
                 className={clsx(classes.appBar, {
                     [classes.appBarShift]: open,
                 })}
+                style={{backgroundColor: "lightgrey", color: "black"}}
             >
                 <Toolbar>
                     <IconButton
@@ -311,7 +316,7 @@ const Homepage = (props) => {
             >
                 <div className={classes.drawerHeader} />
                 <div id="logo">
-                    <a onClick={handleLogoButton} href=""><img src={logo} style={{ height: "150px" }} /></a>
+                    <a onClick={handleLogoButton} href="/homepage"><img src={logo} alt="logo" style={{ height: "150px" }} /></a>
                 </div>
                 <div style={{ backgroundColor: "lightgrey", boxShadow: "5px 5px black", position: "static" }}>
                     <h1 style={{ textAlign: "center" }}>Recommended Movie</h1>
@@ -328,14 +333,12 @@ const Homepage = (props) => {
                         <picture id="fullscreenBlurr">
                             <img id="fullscreenImg" src={Avengers} alt=""/>
                             <div id="fullscreenDiv">
-                                {/* <div style={{border: "1px solid white", padding: "3px", overflow: "", filter: "" }} id="close">Close</div> */}
                                 <button id="close" className="selectionButton" >Close</button>
                                 <div id="movie1">
                                     <img style={{height: "450px", width: "320px", overflow: ""}} src={Avengers} alt="" />
                                 </div>
-                                {/* <h3 id="fullscreenTitle">Marvel's The Avengers</h3> */}
                                 <div id="fullscreenTitle">
-                                    <button style={{ margin: "auto", fontSize: "13px" }} className="selectionButton" >Marvel's The Avengers</button>
+                                    <button style={{ margin: "auto", fontSize: "13px", cursor: "default" }} className="selectionButton" >Marvel's The Avengers</button>
                                 </div>
                                 <div id="movieTrailers" style={{ position: "absolute", top: "120px", left: "330px", width: "850px", height: "300px" }}>
                                     <video id="recVideo" onClick={handleVideo} width="800"><source src={clip} type="video/mp4" /></video>

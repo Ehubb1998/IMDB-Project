@@ -83,6 +83,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ComedyPage = () => {
+    window.localStorage.removeItem("CATEGORY2");
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);

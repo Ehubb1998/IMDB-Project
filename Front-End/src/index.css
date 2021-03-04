@@ -291,7 +291,6 @@
   box-shadow: 1vw 1vw 0 black;
   cursor: pointer;
   transition: all 0.3s ease;
-  
 }
 #selectionButton:hover {
   animation: gradient 10s ease infinite;
@@ -348,3 +347,5 @@
   -webkit-transform: scale(1.2);
   transform: scale(1.2);
 }
+
+/* Homepage */
