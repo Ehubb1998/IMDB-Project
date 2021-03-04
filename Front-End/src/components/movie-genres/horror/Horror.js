@@ -1,11 +1,8 @@
 import React from 'react';
-import { useDispatch } from "react-redux";
-import { genreOption } from "../../../store/actions/genre";
 import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 import MovieImg from './images/insidious.jpeg';
-import { useHistory } from 'react-router-dom';
 
 const image = {
     url: MovieImg,
@@ -86,14 +83,11 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Horror = (props) => {
-    const history = useHistory();
-    const dispatch = useDispatch();
+const Horror = () => {
     const classes = useStyles();
     const handleClick = () => {
-        const horror = "horror";
-        dispatch(genreOption(horror));
-        history.push("/horror")
+        window.localStorage.setItem("CATEGORY1", "horror");
+        window.location.href = "/horror"
     };
 
     return (

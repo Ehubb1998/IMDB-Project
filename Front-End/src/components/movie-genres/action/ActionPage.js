@@ -13,7 +13,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
-// import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
@@ -21,9 +20,6 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-// import HomeIcon from '@material-ui/icons/Home';
-// import WatchLaterIcon from '@material-ui/icons/WatchLater';
-// import RateReviewIcon from '@material-ui/icons/RateReview';
 import MovieIcon from '@material-ui/icons/Movie';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
@@ -111,6 +107,7 @@ const ActionPage = () => {
                 className={clsx(classes.appBar, {
                     [classes.appBarShift]: open,
                 })}
+                style={{backgroundColor: "lightgrey", color: "black"}}
             >
                 <Toolbar>
                     <IconButton
@@ -141,22 +138,6 @@ const ActionPage = () => {
                         {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
                     </IconButton>
                 </div>
-                {/* <Divider />
-                <List>
-                    {['Home', 'Watch Later'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <HomeIcon /> : <WatchLaterIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItem>
-                    ))}
-                    {['My Reviews', 'What to Watch'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <RateReviewIcon /> : <MovieIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItem>
-                    ))}
-                </List>
-                <Divider /> */}
                 <List>
                     {['Login'].map((text, index) => (
                         <ListItem button component={Link} to="/log-in" key={text}>
@@ -173,7 +154,7 @@ const ActionPage = () => {
             >
                 <div className={classes.drawerHeader} />
                 <div id="logo">
-                    <a onClick={handleLogoButton} href="/"><img src={logo} style={{ height: "150px" }} /></a>
+                    <a onClick={handleLogoButton} href="/"><img src={logo} alt="logo" style={{ height: "150px" }} /></a>
                 </div>
                 <div style={{ backgroundColor: "lightgrey", boxShadow: "5px 5px black", position: "static" }}>
                     <h1 style={{ textAlign: "center" }}>Action</h1>

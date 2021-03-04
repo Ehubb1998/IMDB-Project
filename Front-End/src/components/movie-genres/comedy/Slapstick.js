@@ -11,8 +11,7 @@ const Slapstick = () => {
     const history = useHistory();
  
     const handleClick = () => {
-        const Slapstick = "Slapstick";
-        window.localStorage.setItem("COMEDY_CATEGORY", Slapstick);
+        window.localStorage.setItem("CATEGORY2", "slapstick");
         history.push("/sign-up")
     };
     const playVideo = () => {

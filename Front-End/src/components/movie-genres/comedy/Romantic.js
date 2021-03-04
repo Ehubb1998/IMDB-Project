@@ -11,8 +11,7 @@ const Romantic = () => {
     const history = useHistory();
   
     const handleClick = () => {
-        const Romantic = "Romantic";
-        window.localStorage.setItem("COMEDY_CATEGORY", Romantic);
+        window.localStorage.setItem("CATEGORY2", "romantic");
         history.push("/sign-up")
     };
     const playVideo = () => {

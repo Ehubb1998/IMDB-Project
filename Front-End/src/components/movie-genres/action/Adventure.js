@@ -11,8 +11,7 @@ const AdventureSciFi = () => {
     const history = useHistory();
  
     const handleClick = () => {
-        const adventureSciFi = "adventureSciFi";
-        window.localStorage.setItem("ACTION_CATEGORY", adventureSciFi);
+        window.localStorage.setItem("CATEGORY2", "adventureSciFi");
         history.push("/sign-up")
     };
     const playVideo = () => {

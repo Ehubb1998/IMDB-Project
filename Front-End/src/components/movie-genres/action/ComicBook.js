@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import clip from './clips/thorArrives.mp4'
 import poster from './images/civilwar.jpg';
 import { useHistory } from 'react-router-dom';
@@ -11,8 +11,7 @@ const ComicBook = () => {
     const history = useHistory();
  
     const handleClick = () => {
-        const comicbook = "comicbook";
-        window.localStorage.setItem("ACTION_CATEGORY", comicbook);
+        window.localStorage.setItem("CATEGORY2", "comicBook");
         history.push("/sign-up")
     };
     const playVideo = () => {

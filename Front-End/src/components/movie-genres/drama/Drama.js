@@ -1,11 +1,8 @@
 import React from 'react';
-import { useDispatch } from "react-redux";
-import { genreOption } from "../../../store/actions/genre";
 import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 import MovieImg from './images/12-years.jpg';
-import { useHistory } from 'react-router-dom';
 
 const image = {
     url: MovieImg,
@@ -86,14 +83,11 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Drama = (props) => {
-    const history = useHistory();
-    const dispatch = useDispatch();
+const Drama = () => {
     const classes = useStyles();
     const handleClick = () => {
-        const drama = "drama";
-        dispatch(genreOption(drama));
-        history.push("/drama")
+        window.localStorage.setItem("CATEGORY1", "drama");
+        window.location.href = "/drama"
     };
 
     return (

@@ -87,7 +87,8 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const SplashPage = (props) => {
+const SplashPage = () => {
+    window.localStorage.clear();
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
@@ -139,20 +140,6 @@ const SplashPage = (props) => {
                     </IconButton>
                 </div>
                 <Divider />
-                {/* <List>
-                    {['Home', 'Watch Later'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <HomeIcon /> : <WatchLaterIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItem>
-                    ))}
-                    {['My Reviews', 'What to Watch'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <RateReviewIcon /> : <MovieIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItem>
-                    ))}
-                </List> */}
                 <Divider />
                 <List>
                     {['Login'].map((text, index) => (
@@ -171,7 +158,7 @@ const SplashPage = (props) => {
                 <div className={classes.drawerHeader} />
                 <>
                     <div id="logo">
-                        <a href="/"><img src={logo} style={{height: "200px"}}/></a>
+                        <a href="/"><img src={logo} alt="logo" style={{height: "200px"}}/></a>
                     </div>
                     <div style={{backgroundColor: "lightgrey", boxShadow: "5px 5px black"}}>
                     <h1 style={{textAlign: "center"}}>Welcome to IMDB Lite!</h1>

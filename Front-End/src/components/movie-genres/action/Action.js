@@ -1,11 +1,8 @@
 import React from 'react';
-// import { useDispatch } from "react-redux";
-// import { genreOption } from "../../../store/actions/genre";
 import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 import AvengerImg from './images/infinitywar.jpg';
-// import { useHistory } from 'react-router-dom';
 
 const image = {
     url: AvengerImg,
@@ -86,14 +83,10 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Action = (props) => {
-    // const history = useHistory();
-    // const dispatch = useDispatch();
+const Action = () => {
     const classes = useStyles();
     const handleClick = () => {
-        const action = "action";
-        window.localStorage.setItem("CATEGORIES", action);
-        // history.push("/action")
+        window.localStorage.setItem("CATEGORY1", "action");
         window.location.href = "/action"
     };
 
@@ -133,9 +126,5 @@ const Action = (props) => {
         </div>
     )
 }
-
-// style = "width: 20px;height: 17px;box-shadow: 1px 1px 2px black"
-// onMouseEnter = {onHover}
-// onMouseLeave = {leaveHover}
 
 export default Action;

@@ -11,8 +11,7 @@ const AdultC = () => {
     const history = useHistory();
  
     const handleClick = () => {
-        const AdultC = "AdultC";
-        window.localStorage.setItem("COMEDY_CATEGORY", AdultC);
+        window.localStorage.setItem("CATEGORY2", "adultComedy");
         history.push("/sign-up")
     };
     const playVideo = () => {

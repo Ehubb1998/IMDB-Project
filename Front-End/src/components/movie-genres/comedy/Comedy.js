@@ -1,11 +1,8 @@
 import React from 'react';
-// import { useDispatch } from "react-redux";
-// import { genreOption } from "../../../store/actions/genre";
 import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 import TedImg from './images/Ted-movie.jpg';
-// import { useHistory } from 'react-router-dom';
 
 const image = {
     url: TedImg,
@@ -86,13 +83,10 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Comedy = (props) => {
-    // const history = useHistory();
-    // const dispatch = useDispatch();
+const Comedy = () => {
     const classes = useStyles();
     const handleClick = () => {
-        const comedy = "comedy";
-        window.localStorage.setItem("CATEGORIES", comedy);
+        window.localStorage.setItem("CATEGORY1", "comedy");
         window.location.href = "/comedy"
     };
 

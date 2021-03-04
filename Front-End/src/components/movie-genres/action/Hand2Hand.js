@@ -11,8 +11,7 @@ const Hand2Hand = () => {
     const history = useHistory();
 
     const handleClick = () => {
-        const hand2hand = "hand2hand";
-        window.localStorage.setItem("ACTION_CATEGORY", hand2hand);
+        window.localStorage.setItem("CATEGORY2", "hand2hand");
         history.push("/sign-up")
     };
     const playVideo = () => {
