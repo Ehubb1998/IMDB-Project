@@ -286,9 +286,9 @@ const Homepage = (props) => {
                 </div>
                 <Divider />
                 <List>
-                    {['Home', 'Watch Later'].map((text, index) => (
-                        <ListItem button component={Link} to={index % 2 === 0 ? `/homepage/${props.userName}` : `/watchlater/${props.userName}`} key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <HomeIcon /> : <WatchLaterIcon />}</ListItemIcon>
+                    {['Home'].map((text, index) => (
+                        <ListItem button component={Link} to={`/homepage/${props.userName}`} key={text}>
+                            <ListItemIcon><HomeIcon /></ListItemIcon>
                             <ListItemText primary={text} />
                         </ListItem>
                     ))}
