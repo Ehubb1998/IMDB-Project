@@ -86,6 +86,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Selection = (props) => {
+    window.localStorage.setItem("otherComponent", true);
     let count;
     let selected = false;
     const dispatch = useDispatch();
@@ -110,6 +111,10 @@ const Selection = (props) => {
 
     const selectionButton = () => {
         history.push(`/homepage/${props.userName}`);
+        const otherComponent = window.localStorage.getItem("otherComponent");
+        if (otherComponent === "true") {
+            window.localStorage.removeItem("otherComponent");
+        }
     }
 
     const handleLogoButton = (e) => {

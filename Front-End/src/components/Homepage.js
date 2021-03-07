@@ -23,7 +23,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import HomeIcon from '@material-ui/icons/Home';
-import WatchLaterIcon from '@material-ui/icons/WatchLater';
+// import WatchLaterIcon from '@material-ui/icons/WatchLater';
 import RateReviewIcon from '@material-ui/icons/RateReview';
 import MovieIcon from '@material-ui/icons/Movie';
 import LockIcon from '@material-ui/icons/Lock';
@@ -124,8 +124,14 @@ const Homepage = (props) => {
 
     setTimeout(() => {
         const loader = window.document.getElementById("loader");
-        loader.style.display = "none";
-        window.document.getElementById("container-1").style.display = "";
+        const otherComponent = window.localStorage.getItem("otherComponent");
+
+        if (otherComponent === "true") {
+            return;
+        } else {
+            loader.style.display = "none";
+            window.document.getElementById("container-1").style.display = "";
+        }
     }, 2300)
 
     let isPlaying = true;
@@ -286,14 +292,14 @@ const Homepage = (props) => {
                 </div>
                 <Divider />
                 <List>
-                    {['Home'].map((text, index) => (
+                    {['Home'].map((text) => (
                         <ListItem button component={Link} to={`/homepage/${props.userName}`} key={text}>
                             <ListItemIcon><HomeIcon /></ListItemIcon>
                             <ListItemText primary={text} />
                         </ListItem>
                     ))}
-                    {['My Reviews', 'What to Watch'].map((text, index) => (
-                        <ListItem button component={Link} to={index % 2 === 0 ? `/myreviews/${props.userName}` : "/newlist"} key={text}>
+                    {['My Reviews', 'New Recommendation'].map((text, index) => (
+                        <ListItem button component={Link} to={index % 2 === 0 ? `/reviews/${props.userName}` : `/selection/${props.userName}`} key={text}>
                             <ListItemIcon>{index % 2 === 0 ? <RateReviewIcon /> : <MovieIcon />}</ListItemIcon>
                             <ListItemText primary={text} />
                         </ListItem>
@@ -322,7 +328,7 @@ const Homepage = (props) => {
                     <h1 style={{ textAlign: "center" }}>Recommended Movie</h1>
                 </div>
                 <div id="loader" style={{ display: "" }}>
-                    <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                    <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                 </div>
                 <div style={{ display: "flex", justifyContent: "center" }}>
                     <div onClick={handleClicker} id="container-1" className="recommendedBox" style={{ display: "none" }}>

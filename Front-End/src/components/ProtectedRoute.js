@@ -4,7 +4,6 @@ import { Route } from 'react-router-dom';
 const ProtectedRoute = (props) => {
     const { isLoggedIn } = props;
 
-    console.log("in selection page");
     if (isLoggedIn === null) {
         window.location.href = "/sign-up"
     }
