@@ -35,8 +35,6 @@ export const logOut = () => ({ type: LOGOUT });
 export const signUp = (userName, email, password, confirmedPassword) => {
     return async (dispatch) => {
         try {
-            // console.log(userName);
-            // debugger;
             const res = await fetch("http://localhost:8081/users", {
                 method: "POST",
                 body: JSON.stringify({ userName, email, password, confirmedPassword }),
@@ -44,8 +42,6 @@ export const signUp = (userName, email, password, confirmedPassword) => {
                     "Content-Type": "application/json"
                 },
             });
-            // console.log(res);
-            // debugger;
             if (!res.ok) {
                 throw res;
             }
@@ -67,7 +63,6 @@ export const signUp = (userName, email, password, confirmedPassword) => {
                 });
                 const { userName } = await res.json();
                 window.localStorage.setItem("IMDB_USERNAME", userName);
-                // console.log(userName);
                 userName1 = userName;
                 window.location.href = `/selection/${userName1}`;
             }
@@ -75,8 +70,6 @@ export const signUp = (userName, email, password, confirmedPassword) => {
 
         } catch (err) {
             const { title, errors } = await err.json();
-            // console.log(title);
-            // console.log(errors);
             errorTitle = title;
             errorMsg = errors;
             dispatch(handleErrors());
@@ -94,7 +87,6 @@ export const logIn = (userName, password) => {
                     "Content-Type": "application/json"
                 },
             });
-            // console.log(res);
             if (!res.ok) {
                 throw res;
             }
@@ -116,7 +108,6 @@ export const logIn = (userName, password) => {
                 });
                 const { userName } = await res.json();
                 window.localStorage.setItem("IMDB_USERNAME", userName);
-                // console.log(userName);
                 userName2 = userName;
                 window.location.href = `/homepage/${userName2}`;
             }
@@ -145,7 +136,6 @@ export const demo = () => {
                 throw res;
             }
             const { token, user: { id } } = await res.json();
-            // console.log("token:" + token);
             dispatch(demoLogin(token));
             window.localStorage.setItem("IMDB_ACCESS_TOKEN", token);
             window.localStorage.setItem("IMDB_USER_ID", id);
@@ -162,7 +152,6 @@ export const demo = () => {
                 });
                 const { userName } = await res.json();
                 window.localStorage.setItem("IMDB_USERNAME", userName);
-                // console.log(userName);
                 userName3 = userName;
                 window.location.href = `/selection/${userName3}`;
             }

@@ -60,7 +60,6 @@ const validateSignUpUserName = async (userName) => {
             userName,
         },
     });
-    // console.log(user);
     if (user) {
         return false;
     }
@@ -72,7 +71,6 @@ userRouter.get("/:id(\\d+)", asyncHandler(async (req, res, next) => {
     const id = parseInt(req.params.id, 10);
     const user = await User.findByPk(id);
     const { userName } = user;
-    // console.log(userName);
     res.json({userName: userName});
 }))
 
@@ -85,7 +83,6 @@ userRouter.post(
 
         const passwordResult = validateSignUpPassword(password);
         const userNameResult = validateSignUpUserName(userName);
-        // console.log(userNameResult);
 
         if (email === '' && userName === '' && passwordResult === false) {
             const err = new Error("Sign Up Failed");
@@ -174,7 +171,6 @@ userRouter.post(
 
 const passwordVali = function (password, user) {
     const result = user.validatePassword(password);
-    // console.log(result);
     return result;
 };
 
@@ -182,17 +178,12 @@ userRouter.post(
     "/token",
     validateUserNameAndPassword,
     asyncHandler(async (req, res, next) => {
-        // console.log(req.body);
         const { userName, password } = req.body;
-        console.log(userName);
-        // debugger;
         const user = await User.findOne({
             where: {
                 userName,
             },
         });
-        // console.log(user);
-        // debugger;
 
         if (user === null || user === '') {
             const err = new Error("Login failed");
@@ -203,7 +194,6 @@ userRouter.post(
             return next(err);
         } else {
             const valiPass = passwordVali(password, user);
-            // console.log(valiPass);
             if (valiPass === false) {
                 const err = new Error("Login failed");
                 err.status = 401;

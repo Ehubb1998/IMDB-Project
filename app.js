@@ -27,8 +27,6 @@ app.use((req, res, next) => {
 });
 
 app.use((err, req, res, next) => {
-    // console.log("I'm here");
-    // console.log(err);
     res.status(err.status || 500);
     const errMsg = err.errors;
 
@@ -36,7 +34,6 @@ app.use((err, req, res, next) => {
         title: err.title,
         errors: errMsg,
     });
-    console.log(errMsg);
 });
 
 module.exports = app;

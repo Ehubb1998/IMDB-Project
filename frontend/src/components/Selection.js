@@ -144,7 +144,6 @@ const Selection = (props) => {
             window.document.getElementById(e.target.id).classList.toggle("active");
             window.document.getElementById(e.target.id).firstChild.style.border = "7px solid white";
             selectedArr.push(e.target.id);
-            console.log(selectedArr);
         }
         if (selected === false) {
             count = 1;

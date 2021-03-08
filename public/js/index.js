@@ -32,7 +32,6 @@ var app = {
 
     logOut: () => {
         document.getElementById("log-out").addEventListener("click", () => {
-            console.log("logging out");
             localStorage.clear();
             window.location.href = "/";
         })

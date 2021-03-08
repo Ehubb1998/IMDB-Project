@@ -21,8 +21,8 @@ demoButton.addEventListener("click", async (e) => {
             localStorage.setItem("IMDB_USER_ID", id);
             window.location.href = `/homepage/Demo`;
 
-        } catch {
-            console.log(err);
+        } catch (err) {
+            console.error(err);
         }
     }
     // loginDemo();

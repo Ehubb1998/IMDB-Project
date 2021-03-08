@@ -32,8 +32,6 @@ signUpForm.addEventListener("submit", async (e) => {
     } catch (err) {
         if (err.status >= 400 && err.status < 600) {
             const errorJSON = await err.json();
-            // console.log(errorJSON);
-            // const errorsContainer = document.querySelector(".errors-container");
             const signUpHeader = document.querySelector(".new-user-page");
             const signUpErr = document.querySelector(".signUpErr");
             const invalidCred = document.createElement("div");
@@ -46,7 +44,6 @@ signUpForm.addEventListener("submit", async (e) => {
                 `,
             ];
             const { errors } = errorJSON;
-            console.log(errors);
             if (errors && Array.isArray(errors)) {
                 errorsHTML = errors.map((message) => {
                     `<li>${message}</li>`;
@@ -62,7 +59,6 @@ signUpForm.addEventListener("submit", async (e) => {
                 invalidCred2.setAttribute("style", "font-size: 20px");
                 invalidCred2.innerHTML = errors;
                 signUpErr.appendChild(invalidCred2);
-                // console.log(errDiv);
             }
         }
     }
