@@ -24,12 +24,10 @@ logInForm.addEventListener("submit", async (e) => {
 
         localStorage.setItem("IMDB_ACCESS_TOKEN", token);
         localStorage.setItem("IMDB_USER_ID", id);
-        console.log("IT'S THE END OF THE LINE PAL");
         window.location.href = `/homepage/${userName}`;
     } catch (err) {
         if (err.status >= 400 && err.status < 600) {
             const errorJSON = await err.json();
-            // console.log(errorJSON);
             const errorsContainer = document.querySelector(".errors-container");
             let errorsHtml = [
                 `
@@ -51,7 +49,6 @@ logInForm.addEventListener("submit", async (e) => {
                 const invalidCred = document.createElement("li");
                 const mainHeader = document.querySelector(".mainHeader");
                 const errDiv = document.querySelector(".errDiv");
-                // console.log(mainHeader.length);
                 invalidCred.innerHTML = `${errorJSON.errors}`;
                 invalidCred.setAttribute("style", "font-size: 20px");
                 errDiv.innerHTML = "";
