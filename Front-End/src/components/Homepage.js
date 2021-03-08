@@ -24,7 +24,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import HomeIcon from '@material-ui/icons/Home';
 // import WatchLaterIcon from '@material-ui/icons/WatchLater';
-import RateReviewIcon from '@material-ui/icons/RateReview';
+// import RateReviewIcon from '@material-ui/icons/RateReview';
 import MovieIcon from '@material-ui/icons/Movie';
 import LockIcon from '@material-ui/icons/Lock';
 import clip from '../Avengers-Trailer.mp4'
@@ -298,12 +298,18 @@ const Homepage = (props) => {
                             <ListItemText primary={text} />
                         </ListItem>
                     ))}
-                    {['My Reviews', 'New Recommendation'].map((text, index) => (
+                    {['New Recommendation'].map((text) => (
+                        <ListItem button component={Link} to={`/selection/${props.userName}`} key={text}>
+                            <ListItemIcon><MovieIcon /></ListItemIcon>
+                            <ListItemText primary={text} />
+                        </ListItem>
+                    ))}
+                    {/* {['My Reviews', 'New Recommendation'].map((text, index) => (
                         <ListItem button component={Link} to={index % 2 === 0 ? `/reviews/${props.userName}` : `/selection/${props.userName}`} key={text}>
                             <ListItemIcon>{index % 2 === 0 ? <RateReviewIcon /> : <MovieIcon />}</ListItemIcon>
                             <ListItemText primary={text} />
                         </ListItem>
-                    ))}
+                    ))} */}
                 </List>
                 <Divider />
                 <List>

@@ -21,8 +21,8 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import HomeIcon from '@material-ui/icons/Home';
-import WatchLaterIcon from '@material-ui/icons/WatchLater';
-import RateReviewIcon from '@material-ui/icons/RateReview';
+// import WatchLaterIcon from '@material-ui/icons/WatchLater';
+// import RateReviewIcon from '@material-ui/icons/RateReview';
 import MovieIcon from '@material-ui/icons/Movie';
 import LockIcon from '@material-ui/icons/Lock';
 
@@ -208,15 +208,15 @@ const Selection = (props) => {
                 </div>
                 <Divider />
                 <List>
-                    {['Home', 'Watch Later'].map((text, index) => (
-                        <ListItem button component={Link} to={index % 2 === 0 ? `/homepage/${props.userName}` : `/watchlater/${props.userName}`} key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <HomeIcon /> : <WatchLaterIcon />}</ListItemIcon>
+                    {['Home'].map((text) => (
+                        <ListItem button component={Link} to={`/homepage/${props.userName}`} key={text}>
+                            <ListItemIcon><HomeIcon /></ListItemIcon>
                             <ListItemText primary={text} />
                         </ListItem>
                     ))}
-                    {['My Reviews', 'What to Watch'].map((text, index) => (
-                        <ListItem button component={Link} to={index % 2 === 0 ? `/myreviews/${props.userName}` : "/newlist"} key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <RateReviewIcon /> : <MovieIcon />}</ListItemIcon>
+                    {['New Recommendation'].map((text) => (
+                        <ListItem button component={Link} to={`/selection/${props.userName}`} key={text}>
+                            <ListItemIcon><MovieIcon /></ListItemIcon>
                             <ListItemText primary={text} />
                         </ListItem>
                     ))}
