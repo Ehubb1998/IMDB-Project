@@ -11,7 +11,6 @@ app.use(express.json());
 app.use("/users", userRouter);
 app.use("/movies", movieRouter);
 app.use(express.static(path.join(__dirname, "public")));
-app.set("view engine", "pug");
 
 const router = express.Router();
 
