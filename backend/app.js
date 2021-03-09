@@ -13,6 +13,8 @@ app.use("/movies", movieRouter);
 app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "pug");
 
+const router = express.Router();
+
 // Static routes
 // Serve React build files in production
 if (process.env.NODE_ENV === 'production') {
@@ -52,6 +54,8 @@ if (process.env.NODE_ENV !== 'production') {
 //     res.render("log-in")
 // });
 
+app.use(router);
+
 app.use((req, res, next) => {
     const err = new Error("The requested resource couldn't be found.");
     err.status = 404;
@@ -74,20 +78,20 @@ module.exports = app;
 // package.json start script that was removed
 // "start": "nodemon -r dotenv/config ./bin/www",
 
-    // "test": "echo \"Error: no test specified\" && exit 1",
-    // "db:create": "dotenv sequelize-cli db:create",
-    // "db:drop": "dotenv sequelize-cli db:drop",
-    // "db:migrate": "dotenv sequelize-cli db:migrate",
-    // "db:migrate:undo:all": "dotenv sequelize-cli db:migrate:undo:all",
-    // "db:redo": "npm run db:seed:undo:all && npm run db:migrate:undo:all && npm run db:migrate && npm run db:seed:all",
-    // "db:seed:all": "dotenv sequelize-cli db:seed:all",
-    // "db:seed:undo:all": "dotenv sequelize-cli db:seed:undo:all",
-    // "dev": "dotenv nodemon ./bin/www",
-    // "migration:generate": "sequelize-cli migration:generate",
-    // "model:generate": "sequelize-cli model:generate",
-    // "seed:generate": "sequelize-cli seed:generate",
-    // "sequelize": "sequelize",
-    // "sequelize-cli": "sequelize-cli",
-    // "start": "node ./bin/www",
-    // "start:development": "nodemon -r dotenv/config ./bin/www",
-    // "start:production": "node ./bin/www"
+// "test": "echo \"Error: no test specified\" && exit 1",
+// "db:create": "dotenv sequelize-cli db:create",
+// "db:drop": "dotenv sequelize-cli db:drop",
+// "db:migrate": "dotenv sequelize-cli db:migrate",
+// "db:migrate:undo:all": "dotenv sequelize-cli db:migrate:undo:all",
+// "db:redo": "npm run db:seed:undo:all && npm run db:migrate:undo:all && npm run db:migrate && npm run db:seed:all",
+// "db:seed:all": "dotenv sequelize-cli db:seed:all",
+// "db:seed:undo:all": "dotenv sequelize-cli db:seed:undo:all",
+// "dev": "dotenv nodemon ./bin/www",
+// "migration:generate": "sequelize-cli migration:generate",
+// "model:generate": "sequelize-cli model:generate",
+// "seed:generate": "sequelize-cli seed:generate",
+// "sequelize": "sequelize",
+// "sequelize-cli": "sequelize-cli",
+// "start": "node ./bin/www",
+// "start:development": "nodemon -r dotenv/config ./bin/www",
+// "start:production": "node ./bin/www"
