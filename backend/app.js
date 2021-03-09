@@ -5,7 +5,7 @@ const cors = require("cors");
 const bearerToken = require("express-bearer-token");
 const userRouter = require("./routes/users");
 const movieRouter = require("./routes/movies");
-app.use(cors({origin: true}));
+app.use(cors({origin: "*"}));
 app.use(bearerToken());
 app.use(express.json());
 app.use("/users", userRouter);
