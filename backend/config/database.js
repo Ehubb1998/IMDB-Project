@@ -1,4 +1,4 @@
-const config = require('./');
+const config = require('./index');
 
 const db = config.db;
 const username = db.username;
@@ -27,6 +27,7 @@ module.exports = {
     seederStorage: 'sequelize',
     dialectOptions: {
       ssl: {
+        require: true,
         rejectUnauthorized: false
       }
     }

@@ -2,10 +2,12 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const cors = require("cors");
+const morgan = require("morgan");
 const bearerToken = require("express-bearer-token");
 const userRouter = require("./routes/users");
 const movieRouter = require("./routes/movies");
 app.use(cors({origin: "*"}));
+app.use(morgan("dev"));
 app.use(bearerToken());
 app.use(express.json());
 app.use("/users", userRouter);
@@ -20,10 +22,15 @@ if (process.env.NODE_ENV === 'production') {
   const path = require('path');
   // Serve the frontend's index.html file at the root route
   router.get('/', (req, res) => {
-    res.cookie('XSRF-TOKEN', req.csrfToken());
-    res.sendFile(
-      path.resolve(__dirname, '../frontend', 'build', 'index.html')
-    );
+    try {
+        res.cookie('XSRF-TOKEN', req.csrfToken());
+        res.sendFile(
+            path.resolve(__dirname, '../frontend', 'build', 'index.html')
+        );
+
+    } catch (e) {
+        throw new Error(e);
+    }
   });
 
   // Serve the static assets in the frontend's build folder
